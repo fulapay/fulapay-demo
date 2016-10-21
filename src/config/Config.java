@@ -28,9 +28,14 @@ public class Config {
      */
 //    public static final String UNIFIED_ORDER_URL = "https://api.fulapay.com/pay/unifiedOrder";
     public static final String UNIFIED_ORDER_URL = "http://121.43.161.81:8888/pay/unifiedOrder";
+    public static final String QUERY_ORDER_URL = "http://121.43.161.81:8888/pay/query";
 
-    public static final String FULA_ALIAY_QRCODE_SERVICE = "fula.alipay.qrcode";
-    public static final String FULA_ALIPAY_SCAN_SERVICE = "fula.alipay.scan";
-    public static final String FULA_WXPAY_SCAN_SERVICE = "fula.alipay.scan";
+    public static final String PAY_WXPAY_QRCODE = "pay.wxpay.qrcode";
+    public static final String PAY_WXPAY_SCAN = "pay.wxpay.scan";
+    public static final String PAY_WXPAY_JS = "pay.wxpay.js";
+
+    public static final String PAY_ALIPAY_QRCODE = "pay.alipay.qrcode";
+    public static final String PAY_ALIPAY_SCAN = "pay.alipay.scan";
+    public static final String PAY_ALIPAY_JS = "pay.alipay.js";
 
 }
