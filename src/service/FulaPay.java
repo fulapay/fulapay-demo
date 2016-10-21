@@ -22,7 +22,12 @@ public class FulaPay extends HttpServlet{
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         SortedMap<String, String> param = new TreeMap();
-        param.put("service", Config.FULA_ALIAPY_QRCODE_SERVIER);
+        String service = Config.FULA_ALIAY_QRCODE_SERVICE;
+        param.put("service", service);
+        // TODO wuming 16/10/21 如果 service为fula.xxx.scan 扫码支付需要authCode 参数（支付宝或者微信扫码支付的上显示的code）
+        if(Config.FULA_WXPAY_SCAN_SERVICE.equals(service) || Config.FULA_ALIAY_QRCODE_SERVICE.equals(service)){
+            param.put("authCode", "");
+        }
         param.put("mch_id", "8012667850604828");
         param.put("app_id", "1000000");
         param.put("out_trade_no", "RNl6u3xDGM5D2Ta73d6upAgnweWDNzEX");
