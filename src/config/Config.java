@@ -26,9 +26,11 @@ public class Config {
     /**
      * 付啦统一下单链接 无需修改
      */
-//    public static final String UNIFIED_ORDER_URL = "https://api.fulapay.com/pay/unifiedOrder";
-    public static final String UNIFIED_ORDER_URL = "http://121.43.161.81:8888/pay/unifiedOrder";
-    public static final String QUERY_ORDER_URL = "http://121.43.161.81:8888/pay/query";
+    public static final String UNIFIED_ORDER_URL = "https://api.fulapay.com/pay/unifiedOrder";
+    public static final String QUERY_ORDER_URL = "https://api.fulapay.com/pay/query";
+    // TODO 商家配置
+    public static final String NOTIFY_URL = "https://api.fulapay.com/mchPay/notify";
+
 
     public static final String PAY_WXPAY_QRCODE = "pay.wxpay.qrcode";
     public static final String PAY_WXPAY_SCAN = "pay.wxpay.scan";

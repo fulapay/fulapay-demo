@@ -2,7 +2,7 @@ package service;
 
 import config.Config;
 import net.sf.json.JSONObject;
-import util.HttpUtil;
+import util.HttpsUtil;
 import util.PayUtil;
 import util.XmlUtil;
 
@@ -43,10 +43,10 @@ public class FulaPay extends HttpServlet{
         param.put("body", "支付测试");
         param.put("mch_create_ip", "127.0.0.1");
         param.put("nonce_str", "TzaETzfe4lgL2hOmfbx9XEttAEuZSuiE");
-        param.put("notify_url", "https://121.43.161.81:8888/mchPay/notify");
+        param.put("notify_url", Config.NOTIFY_URL);
         // 商户构建请求参数
         String xmlStr = PayUtil.unifiedOrderRequest(param);
-        String resText = HttpUtil.post(Config.UNIFIED_ORDER_URL, xmlStr, Config.CHARSET);
+        String resText = HttpsUtil.post(Config.UNIFIED_ORDER_URL, xmlStr, Config.CHARSET);
         System.out.println("-----resText: " + resText);
         // 验签后取得支付数据
         Map<String, Object> responseMap = new HashMap<>();
