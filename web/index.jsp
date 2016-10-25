@@ -36,7 +36,7 @@
     <span>单位:分(整型)</span>
     <br><br>
 
-    <span id="error" style="color: red;"></span>
+    <span id="error" style="color: red;display: none;"></span>
     <br><br>
 
     <input id="submit" type="button" value="提交"/>
@@ -46,27 +46,29 @@
 
 <script>
     var authCodeDiv = document.getElementById('authCodeDiv');
-    console.log(authCodeDiv);
     function changeService(service) {
         if(service == 'pay.alipay.scan' || service == 'pay.wxpay.scan'){
             authCodeDiv.style.display = 'block';
-            document.getElementById('qrcode').innerHTML = '';
         } else {
             authCodeDiv.style.display = 'none';
         }
+        document.getElementById('qrcode').innerHTML = '';
     }
 
     document.getElementById("submit").addEventListener('click', function () {
+        document.getElementById("error").style.display = 'none';
         $.post('/fulaPay', $('#form').serialize(), function (data) {
             if (data.success) {
                 var service = $("#service").val();
-                if(service == 'pay.alipay.qrcode' || service == 'pay.alipay.qrcode'){
+                if(service == 'pay.alipay.qrcode' || service == 'pay.wxpay.qrcode'){
                     $('#qrcode').qrcode(data.payInfo);
                 } else{
+                    // 扫码支付同步返回支付结果
                     alert('支付成功');
                 }
             } else {
-                $('#error').html('错误信息: ' + data.error);
+                document.getElementById("error").innerHTML = '错误信息: ' + data.error;
+                document.getElementById("error").style.display = 'block';
             }
         }, 'json');
     }, false);
