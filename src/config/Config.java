@@ -24,12 +24,20 @@ public class Config {
     public static final String CHARSET = "UTF-8";
 
     /**
-     * 付啦统一下单链接 无需修改
+     * 付啦统一下单线上环境链接 无需修改
      */
-    public static final String UNIFIED_ORDER_URL = "https://api.fulapay.com/pay/unifiedOrder";
-    public static final String QUERY_ORDER_URL = "https://api.fulapay.com/pay/query";
+//    public static final String UNIFIED_ORDER_URL = "https://api.fulapay.com/pay/unifiedOrder";
+//    public static final String QUERY_ORDER_URL = "https://api.fulapay.com/pay/query";
+//    // TODO 商家配置
+//    public static final String NOTIFY_URL = "https://api.fulapay.com/mchPay/notify";
+
+    /**
+     * https://sandapi.fulapay.com/
+     */
+    public static final String UNIFIED_ORDER_URL = "https://sandapi.fulapay.com/pay/unifiedOrder";
+    public static final String QUERY_ORDER_URL = "https://sandapi.fulapay.com/pay/query";
     // TODO 商家配置
-    public static final String NOTIFY_URL = "https://api.fulapay.com/mchPay/notify";
+    public static final String NOTIFY_URL = "https://sandapi.fulapay.com/mchPay/notify";
 
 
     public static final String PAY_WXPAY_QRCODE = "pay.wxpay.qrcode";
