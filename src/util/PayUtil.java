@@ -21,8 +21,9 @@ public class PayUtil {
      * @param result
      * @return
      */
-    public static String unifiedOrderRequest(SortedMap<String, String> result) {
+    public static String buildRequestXml(SortedMap<String, String> result) {
         result.put("charset", Config.CHARSET);
+        result.put("sign_type", Config.SIGN_TYPE);
         StringBuffer sb = new StringBuffer("<?xml version=\"1.0\" encoding=\"UTF-8\" ?><xml>");
         StringBuffer buffer = new StringBuffer();
         Iterator iterator = result.keySet().iterator();

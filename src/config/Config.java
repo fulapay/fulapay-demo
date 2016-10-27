@@ -24,6 +24,12 @@ public class Config {
     public static final String CHARSET = "UTF-8";
 
     /**
+     * 签名算法
+     */
+    public static final String SIGN_TYPE = "RSA";
+
+
+    /**
      * 付啦统一下单线上环境链接 无需修改
      */
 //    public static final String UNIFIED_ORDER_URL = "https://api.fulapay.com/pay/unifiedOrder";
@@ -40,6 +46,10 @@ public class Config {
     public static final String NOTIFY_URL = "https://sandapi.fulapay.com/mchPay/notify";
 
 
+    /**
+     * 付啦service
+     */
+    // 统一下单
     public static final String PAY_WXPAY_QRCODE = "pay.wxpay.qrcode";
     public static final String PAY_WXPAY_SCAN = "pay.wxpay.scan";
     public static final String PAY_WXPAY_JS = "pay.wxpay.js";
@@ -47,5 +57,10 @@ public class Config {
     public static final String PAY_ALIPAY_QRCODE = "pay.alipay.qrcode";
     public static final String PAY_ALIPAY_SCAN = "pay.alipay.scan";
     public static final String PAY_ALIPAY_JS = "pay.alipay.js";
+
+    // 订单查询
+    public static final String PAY_TRADE_QUERY = "pay.trade.query";
+    // 订单退款
+    public static final String PAY_TRADE_REFUND = "pay.trade.refund";
 
 }

@@ -29,7 +29,6 @@ public class FulaPay extends HttpServlet{
         resp.setCharacterEncoding("UTF-8");
         resp.setContentType("application/json;charset=UTF-8");
         SortedMap<String, String> param = new TreeMap();
-//        String service = Config.PAY_ALIPAY_QRCODE;
         String service = req.getParameter("service");
         param.put("service", service);
         // TODO wuming 16/10/21 如果 service为fula.xxx.scan 扫码支付需要authCode 参数（支付宝或者微信扫码支付的上显示的code）
@@ -45,7 +44,7 @@ public class FulaPay extends HttpServlet{
         param.put("nonce_str", "TzaETzfe4lgL2hOmfbx9XEttAEuZSuiE");
         param.put("notify_url", Config.NOTIFY_URL);
         // 商户构建请求参数
-        String xmlStr = PayUtil.unifiedOrderRequest(param);
+        String xmlStr = PayUtil.buildRequestXml(param);
         String resText = HttpsUtil.post(Config.UNIFIED_ORDER_URL, xmlStr, Config.CHARSET);
         System.out.println("-----resText: " + resText);
         // 验签后取得支付数据
