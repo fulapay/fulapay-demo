@@ -42,6 +42,8 @@ public class Config {
      */
     public static final String UNIFIED_ORDER_URL = "https://sandapi.fulapay.com/pay/unifiedOrder";
     public static final String QUERY_ORDER_URL = "https://sandapi.fulapay.com/pay/query";
+    // 商户进件
+    public static final String PAY_MERCHANT_RECOMMEND_URL = "https://sandapi.fulapay.com/merchant/recommend";
     // TODO 商家配置
     public static final String NOTIFY_URL = "https://sandapi.fulapay.com/mchPay/notify";
 
@@ -62,5 +64,16 @@ public class Config {
     public static final String PAY_TRADE_QUERY = "pay.trade.query";
     // 订单退款
     public static final String PAY_TRADE_REFUND = "pay.trade.refund";
+    // 商户进件
+    public static final String PAY_MERCHANT_RECOMMEND = "pay.merchant.recommend";
+
+    /**
+     * "0" 进件基本资料
+     * "1" 修改基本资料
+     * "2" 进件、修改图片信息
+     */
+    public static final String MERCHANT_RECOMMEND_TYPE_BASE_ADD = "0";
+    public static final String MERCHANT_RECOMMEND_TYPE_BASE_UPDATE = "1";
+    public static final String MERCHANT_RECOMMEND_TYPE_IMAGE_UPDATE = "2";
 
 }
