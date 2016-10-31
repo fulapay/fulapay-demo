@@ -16,7 +16,7 @@ public class MerchantRecommend {
 
     public static void main(String[] args) throws Exception {
         SortedMap<String, String> param = new TreeMap();
-        param.put("service", Config.PAY_MERCHANT_RECOMMEND);
+        param.put("service", Config.PAY_MERCHANT_ENTER);
         param.put("type", Config.MERCHANT_RECOMMEND_TYPE_BASE_ADD);
         param.put("app_id", "1000000");
         param.put("nonce_str", "TzaETzfe4lgL2hOmfbx9XEttAEuZSuiE");

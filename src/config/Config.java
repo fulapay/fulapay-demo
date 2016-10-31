@@ -66,7 +66,7 @@ public class Config {
     // 订单退款
     public static final String PAY_TRADE_REFUND = "pay.trade.refund";
     // 商户进件
-    public static final String PAY_MERCHANT_RECOMMEND = "pay.merchant.recommend";
+    public static final String PAY_MERCHANT_ENTER = "pay.merchant.enter";
 
     /**
      * "0" 进件基本资料
