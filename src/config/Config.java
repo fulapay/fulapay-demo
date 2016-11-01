@@ -41,6 +41,10 @@ public class Config {
     /**
      * https://sandapi.fulapay.com/
      */
+    // 付啦统一支付service url
+    public static final String UNIFIED_PAY_URL = "https://sandapi.fulapay.com/pay/unified/url";
+
+    // 付啦service url
     public static final String UNIFIED_ORDER_URL = "https://sandapi.fulapay.com/pay/unifiedOrder";
     public static final String QUERY_ORDER_URL = "https://sandapi.fulapay.com/pay/query";
     // 商户进件
@@ -50,7 +54,13 @@ public class Config {
 
 
     /**
-     * 付啦service
+     * 付啦统一支付service
+     */
+    public static final String PAY_UNIFIED_PAY = "pay.unified.pay"; // 统一支付链接
+    public static final String PAY_UNIFIED_QRCODE = "pay.unified.qrcode"; // 统一支付二维码链接
+
+    /**
+     * 付啦支付service
      */
     // 统一下单
     public static final String PAY_WXPAY_QRCODE = "pay.wxpay.qrcode";
