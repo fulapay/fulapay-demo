@@ -12,31 +12,31 @@ import java.util.TreeMap;
 /**
  * Created by wuming on 16/10/29.
  */
-public class MerchantRecommend {
+public class MerchantEnter {
 
     public static void main(String[] args) throws Exception {
         SortedMap<String, String> param = new TreeMap();
         param.put("service", Config.PAY_MERCHANT_ENTER);
-        param.put("type", Config.MERCHANT_RECOMMEND_TYPE_BASE_ADD);
+        param.put("type", Config.MERCHANT_ENTER_TYPE_BASE_ADD);
         param.put("app_id", "1000000");
         param.put("nonce_str", "TzaETzfe4lgL2hOmfbx9XEttAEuZSuiE");
 
         // 如果是更新、或者进件照片信息需要传merchant_no,
-        if (!Config.MERCHANT_RECOMMEND_TYPE_BASE_ADD.equals(param.get("type"))){
+        if (!Config.MERCHANT_ENTER_TYPE_BASE_ADD.equals(param.get("type"))){
             param.put("merchant_no", "88792198212256051200"); // merchant_no为调用type=0时返回的商户号
         }
 
         // 设置商户图片信息
-        if(Config.MERCHANT_RECOMMEND_TYPE_IMAGE_UPDATE.equals(param.get("type"))){
+        if(Config.MERCHANT_ENTER_TYPE_IMAGE_UPDATE.equals(param.get("type"))){
             String filePath = "/Users/wuming/Pictures/cat.jpg";
             String base64Str =  ImageUtil.encodeBase64File(filePath);
-            // recommend merchant photo
+            // enter merchant photo
             param.put("id_front_image", base64Str); // 身份证正面
             param.put("id_back_image", base64Str); // 身份证反而
             param.put("id_hand_image", base64Str); // 手机身份证
             param.put("bank_front_image", base64Str); // 银行卡正面
         } else {
-            // recommend merchant info
+            // enter merchant info
             param.put("name", "无名"); // 请填写真实姓名,要与身份证上一致
             param.put("mobile", "15280173582"); // 商户联系方式
             param.put("id_number", "411528199901106668"); // 身份证号码
@@ -53,7 +53,7 @@ public class MerchantRecommend {
         System.out.println(">>>>post sign map: " + param);
         String xmlStr = PayUtil.buildRequestXml(param);
         System.out.println(">>>>post xmlStr: " +  xmlStr);
-        String resText = HttpsUtil.post(Config.PAY_MERCHANT_RECOMMEND_URL, xmlStr, Config.CHARSET);
+        String resText = HttpsUtil.post(Config.PAY_MERCHANT_ENTER_URL, xmlStr, Config.CHARSET);
         System.out.println("<<<<merchant resText: " + resText);
         // 验签后取得支付数据
         if (resText != null) {
