@@ -23,10 +23,10 @@ public class TradeQuery extends HttpServlet{
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
         SortedMap<String, String> param = new TreeMap();
         param.put("service", Config.PAY_TRADE_QUERY);
-        param.put("mch_id", "8012667850604828");
-        param.put("app_id", "1000000");
-        param.put("out_trade_no", "20161021104912fb67e");
-        param.put("transaction_id", "20161021104912f7a82");
+        param.put("app_id", Config.APP_ID);
+        param.put("mch_id", Config.MCH_ID);
+        param.put("out_trade_no", "5467e445db7348ce9d4232ff8ce32dbf");
+        param.put("transaction_id", "20161102183126700df");
         param.put("nonce_str", "TzaETzfe4lgL2hOmfbx9XEttAEuZSuiE");
 
         // 商户构建请求参数

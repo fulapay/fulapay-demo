@@ -35,9 +35,9 @@ public class FulaPay extends HttpServlet{
         if(Config.PAY_WXPAY_SCAN.equals(service) || Config.PAY_ALIPAY_SCAN.equals(service)){
             param.put("authCode", req.getParameter("authCode"));
         }
-        param.put("mch_id", "8012667850604828");
-        param.put("app_id", "1000000");
-        param.put("out_trade_no", UUID.randomUUID().toString());
+        param.put("app_id", Config.APP_ID);
+        param.put("mch_id", Config.MCH_ID);
+        param.put("out_trade_no", UUID.randomUUID().toString().replaceAll("-", ""));
         param.put("total_fee", req.getParameter("totalFee"));
         param.put("body", "支付测试");
         param.put("mch_create_ip", "127.0.0.1");

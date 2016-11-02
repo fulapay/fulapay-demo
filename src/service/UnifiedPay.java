@@ -24,8 +24,8 @@ public class UnifiedPay extends HttpServlet{
 
         param.put("service", Config.PAY_UNIFIED_PAY);
 //        param.put("service", Config.PAY_UNIFIED_QRCODE);
-        param.put("app_id", "1000000"); // 测试用app_id
-        param.put("mch_id", "8012667850604828");// 商户号 可以不填写
+        param.put("app_id", Config.APP_ID); // 测试用app_id
+        param.put("mch_id", Config.MCH_ID);// 商户号 可以不填写
         param.put("mobile", "18658103308"); // mobile必填 没有商户号则以mobile查询相关商户
         param.put("nonce_str", "TzaETzfe4lgL2hOmfbx9XEttAEuZSuiE");
         // 商户构建请求参数

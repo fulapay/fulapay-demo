@@ -18,7 +18,7 @@ public class MerchantEnter {
         SortedMap<String, String> param = new TreeMap();
         param.put("service", Config.PAY_MERCHANT_ENTER);
         param.put("type", Config.MERCHANT_ENTER_TYPE_BASE_ADD);
-        param.put("app_id", "1000000");
+        param.put("app_id", Config.APP_ID);
         param.put("nonce_str", "TzaETzfe4lgL2hOmfbx9XEttAEuZSuiE");
 
         // 如果是更新、或者进件照片信息需要传merchant_no,

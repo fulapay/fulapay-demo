@@ -6,6 +6,9 @@ package config;
  */
 public class Config {
 
+    public static final String APP_ID = "1000015";
+    public static final String MCH_ID = "88793741592119799888";
+
     /**
      * 测试专用商户公私钥
      */
