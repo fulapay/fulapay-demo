@@ -21,6 +21,7 @@
         <option value="pay.wxpay.qrcode">微信二维码支付</option>
         <option value="pay.alipay.scan">支付宝扫码支付</option>
         <option value="pay.wxpay.scan">微信扫码支付</option>
+        <option value="pay.wxpay.js">微信公众号(js支付)</option>
     </select>
     <br><br>
 
@@ -28,6 +29,13 @@
         条形码
         <input type="text" name="authCode" value="">
         支付宝或者微信的条形码字符串
+        <br><br>
+    </div>
+
+    <div id="userIdDiv" style="display: none;">
+        用户openId
+        <input type="text" name="userId" value="ouVKTvzSrvBbPrIFRGvyARpGbcJM">
+        微信或者支付宝js支付时用户相对公众号的openId
         <br><br>
     </div>
 
@@ -46,11 +54,17 @@
 
 <script>
     var authCodeDiv = document.getElementById('authCodeDiv');
+    var userIdDiv = document.getElementById('userIdDiv');
     function changeService(service) {
         if(service == 'pay.alipay.scan' || service == 'pay.wxpay.scan'){
             authCodeDiv.style.display = 'block';
         } else {
             authCodeDiv.style.display = 'none';
+        }
+        if(service == 'pay.alipay.js' || service == 'pay.wxpay.js'){
+            userIdDiv.style.display = 'block';
+        } else {
+            userIdDiv.style.display = 'none';
         }
         document.getElementById('qrcode').innerHTML = '';
     }

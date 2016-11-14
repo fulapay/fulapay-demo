@@ -35,7 +35,10 @@ public class FulaPay extends HttpServlet{
         // TODO wuming 16/10/21 如果 service为fula.xxx.scan 扫码支付需要authCode 参数（支付宝或者微信扫码支付的上显示的code）
         if(Config.PAY_WXPAY_SCAN.equals(service) || Config.PAY_ALIPAY_SCAN.equals(service)){
             param.put("authCode", req.getParameter("authCode"));
+        } else if(Config.PAY_WXPAY_JS.equals(service) || Config.PAY_ALIPAY_JS.equals(service)){
+            param.put("userId", req.getParameter("userId")); // 支付宝或者微信支付时用户相对公众号的openId
         }
+
         param.put("app_id", Config.APP_ID);
         param.put("mch_id", Config.MCH_ID);
         param.put("out_trade_no", UUID.randomUUID().toString().replaceAll("-", ""));
