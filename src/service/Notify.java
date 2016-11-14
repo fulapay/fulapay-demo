@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * 付啦 统一下单后支付回调 接口测试
  * Created by wuming on 16/10/24.
  */
 @WebServlet("/notify")

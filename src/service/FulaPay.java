@@ -16,6 +16,7 @@ import java.io.PrintWriter;
 import java.util.*;
 
 /**
+ * 付啦 统一下单 接口测试
  * Created by wuming on 16/10/20.
  */
 @WebServlet("/fulaPay")

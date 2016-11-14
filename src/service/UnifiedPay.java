@@ -11,17 +11,13 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 /**
+ * 付啦 统一支付 接口测试
  * Created by wuming on 16/10/20.
  */
 public class UnifiedPay extends HttpServlet{
 
-    /**
-     * 统一支付
-     * @param args
-     */
     public static void main(String[] args) {
         SortedMap<String, String> param = new TreeMap();
-
         param.put("service", Config.PAY_UNIFIED_PAY);
 //        param.put("service", Config.PAY_UNIFIED_QRCODE);
         param.put("app_id", Config.APP_ID); // 测试用app_id

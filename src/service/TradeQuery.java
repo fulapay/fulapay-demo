@@ -15,6 +15,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 /**
+ * 付啦 订单查询 接口测试
  * Created by wuming on 16/10/24.
  */
 @WebServlet("/trade/query")
