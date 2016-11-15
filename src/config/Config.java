@@ -39,6 +39,10 @@ public class Config {
      */
     // 付啦统一支付接口请求地址
     public static final String UNIFIED_PAY_URL = "https://sandapi.fulapay.com/pay/unified/url";
+    // js 支付测试环境
+    // public static final String JS_PAY_URL = "https://sandapi.fulapay.com/pay/jspay";
+    // TODO wuming 16/11/15 下午4:23 JS支付仅能线上调用
+    public static final String JS_PAY_URL = "https://api.fulapay.com/pay/jspay";
     // 付啦统一下单接口请求地址
     public static final String UNIFIED_ORDER_URL = "https://sandapi.fulapay.com/pay/unifiedOrder";
     // 付啦订单结果查询接口请求地址
@@ -47,27 +51,34 @@ public class Config {
     public static final String PAY_MERCHANT_ENTER_URL = "https://sandapi.fulapay.com/merchant/enter";
     // 用户后台接收付啦订单支付结果异步通知url，由用户自行定义，该接口为付啦系统异步主动通知用户接口，用户无需主动调用
     public static final String NOTIFY_URL = "https://sandapi.fulapay.com/mchPay/notify";
+    // 支付宝或支付 JS支付结果同步跳转URL，此链接仅为逻辑跳转，具体支付结果及商户订单状态修改根据notify结果处理
+    public static final String RETURN_URL = "https://sandapi.fulapay.com/mchPay/return";
 
 
     /**
-     * UNIFIED_PAY_URL (以下个service仅限调用统一支付接口使用)
+     * UNIFIED_PAY_URL (service参数仅能为以下数据)
      * 付啦统一支付service 常量声明
      */
     public static final String PAY_UNIFIED_PAY = "pay.unified.pay"; // 统一支付链接
     public static final String PAY_UNIFIED_QRCODE = "pay.unified.qrcode"; // 统一支付二维码链接
 
     /**
-     * UNIFIED_ORDER_URL (以下service仅限调用统一下单接口使用)
+     * JS_PAY_URL (service参数仅能为以下数据)
+     * 支付宝或微信 JS支付为同步调起支付
+     */
+    public static final String PAY_WXPAY_JS = "pay.wxpay.js";
+    public static final String PAY_ALIPAY_JS = "pay.alipay.js";
+
+    /**
+     * UNIFIED_ORDER_URL (service参数仅能为以下数据)
      * 付啦支付统一下单接口service 常量声明
      */
     // 统一下单
     public static final String PAY_WXPAY_QRCODE = "pay.wxpay.qrcode";
     public static final String PAY_WXPAY_SCAN = "pay.wxpay.scan";
-    public static final String PAY_WXPAY_JS = "pay.wxpay.js";
 
     public static final String PAY_ALIPAY_QRCODE = "pay.alipay.qrcode";
     public static final String PAY_ALIPAY_SCAN = "pay.alipay.scan";
-    public static final String PAY_ALIPAY_JS = "pay.alipay.js";
 
     /**
      * QUERY_ORDER_URL

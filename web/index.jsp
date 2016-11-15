@@ -32,13 +32,6 @@
         <br><br>
     </div>
 
-    <div id="userIdDiv" style="display: none;">
-        用户openId
-        <input type="text" name="userId" value="ouVKTvzSrvBbPrIFRGvyARpGbcJM">
-        微信或者支付宝js支付时用户相对公众号的openId
-        <br><br>
-    </div>
-
     支付金额
     <input type="text" name="totalFee" value="">
     <span>单位:分(整型)</span>
@@ -54,17 +47,11 @@
 
 <script>
     var authCodeDiv = document.getElementById('authCodeDiv');
-    var userIdDiv = document.getElementById('userIdDiv');
     function changeService(service) {
         if(service == 'pay.alipay.scan' || service == 'pay.wxpay.scan'){
             authCodeDiv.style.display = 'block';
         } else {
             authCodeDiv.style.display = 'none';
-        }
-        if(service == 'pay.alipay.js' || service == 'pay.wxpay.js'){
-            userIdDiv.style.display = 'block';
-        } else {
-            userIdDiv.style.display = 'none';
         }
         document.getElementById('qrcode').innerHTML = '';
     }

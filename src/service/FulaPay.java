@@ -26,19 +26,23 @@ public class FulaPay extends HttpServlet{
         resp.sendRedirect("/index.jsp");
     }
 
+    /**
+     * 统一下单接口
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
         resp.setContentType("application/json;charset=UTF-8");
         SortedMap<String, String> param = new TreeMap();
         String service = req.getParameter("service");
         param.put("service", service);
-        // TODO wuming 16/10/21 如果 service为fula.xxx.scan 扫码支付需要authCode 参数（支付宝或者微信扫码支付的上显示的code）
+        // 如果 service为fula.xxx.scan 扫码支付需要authCode 参数（支付宝或者微信扫码支付的上显示的code）
         if(Config.PAY_WXPAY_SCAN.equals(service) || Config.PAY_ALIPAY_SCAN.equals(service)){
             param.put("authCode", req.getParameter("authCode"));
-        } else if(Config.PAY_WXPAY_JS.equals(service) || Config.PAY_ALIPAY_JS.equals(service)){
-            param.put("userId", req.getParameter("userId")); // 支付宝或者微信支付时用户相对公众号的openId
         }
-
         param.put("app_id", Config.APP_ID);
         param.put("mch_id", Config.MCH_ID);
         param.put("out_trade_no", UUID.randomUUID().toString().replaceAll("-", ""));

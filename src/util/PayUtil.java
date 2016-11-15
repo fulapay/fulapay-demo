@@ -14,10 +14,30 @@ import java.util.SortedMap;
  * Created by wuming on 16/10/20.
  */
 public class PayUtil {
+
     /**
-     * 商家发送统一下单支付请求
-     * 商家后台使用私钥签名后请求我方后台
-     *
+     * 构建GET方法请求数据
+     * 商家后台使用私钥签名后请求付啦
+     * @param result
+     * @return
+     */
+    public static String buildRequest(SortedMap<String, String> result) {
+        result.put("charset", Config.CHARSET);
+        result.put("sign_type", Config.SIGN_TYPE);
+        StringBuffer sb = new StringBuffer();
+        Iterator iterator = result.keySet().iterator();
+        while (iterator.hasNext()) {
+            String key = (String) iterator.next();
+            sb.append(key).append("=").append(result.get(key)).append("&");
+        }
+        String signStr = sb.substring(0, sb.length() - 1).toString();
+        String sign = RSA.sign(signStr, Config.MCH_PRIVATE_KEY, Config.CHARSET);
+        return signStr + "&sign=" + sign;
+    }
+    
+    /**
+     * 构建POST方法XML请求数据
+     * 商家后台使用私钥签名后请求付啦
      * @param result
      * @return
      */
@@ -40,7 +60,7 @@ public class PayUtil {
         sb.append("</xml>"); // 根元素
         return sb.toString();
     }
-
+    
     public static boolean verifyFulaParam(SortedMap<String, String> param) {
         StringBuffer sb = new StringBuffer();
         Iterator<String> iterator = param.keySet().iterator();
