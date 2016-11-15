@@ -39,9 +39,7 @@ public class Config {
      */
     // 付啦统一支付接口请求地址
     public static final String UNIFIED_PAY_URL = "https://sandapi.fulapay.com/pay/unified/url";
-    // js 支付测试环境
-    // public static final String JS_PAY_URL = "https://sandapi.fulapay.com/pay/jspay";
-    // TODO wuming 16/11/15 下午4:23 JS支付仅能线上调用
+    // TODO wuming 16/11/15 下午4:23 JS支付线上接口地址（仅能线上调用）
     public static final String JS_PAY_URL = "https://api.fulapay.com/pay/jspay";
     // 付啦统一下单接口请求地址
     public static final String UNIFIED_ORDER_URL = "https://sandapi.fulapay.com/pay/unifiedOrder";
@@ -53,7 +51,6 @@ public class Config {
     public static final String NOTIFY_URL = "https://sandapi.fulapay.com/mchPay/notify";
     // 支付宝或支付 JS支付结果同步跳转URL，此链接仅为逻辑跳转，具体支付结果及商户订单状态修改根据notify结果处理
     public static final String RETURN_URL = "https://sandapi.fulapay.com/mchPay/return";
-
 
     /**
      * UNIFIED_PAY_URL (service参数仅能为以下数据)

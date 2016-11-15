@@ -26,6 +26,7 @@ public class JsPay extends HttpServlet{
     }
 
     /**
+     * TODO
      * 支付宝或微信支付 仅能线上测试
      * @param req
      * @param resp
@@ -36,8 +37,9 @@ public class JsPay extends HttpServlet{
         SortedMap<String, String> param = new TreeMap();
         String service = req.getParameter("service");
         param.put("service", service);
-        param.put("app_id", Config.APP_ID);
-        param.put("mch_id", Config.MCH_ID);
+        // TODO js支付仅能线上测试，以下两个参数要填写线上的
+        param.put("app_id", Config.APP_ID); // 线上环境付啦开放平台申请的appId
+        param.put("mch_id", Config.MCH_ID); // 线上环境付啦开放平台分发的商户号（通过商户进件接口获取）
         param.put("out_trade_no", UUID.randomUUID().toString().replaceAll("-", ""));
         param.put("total_fee", req.getParameter("totalFee"));
         param.put("body", "支付测试");
