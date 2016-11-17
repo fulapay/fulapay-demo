@@ -49,8 +49,9 @@ public class JsPay extends HttpServlet{
         param.put("return_url", Config.RETURN_URL); // 支付宝或者微信支付时 同步跳转url 必填
         // 商户构建请求参数
         String queryStr = PayUtil.buildRequest(param);
+        // 拼接payUrl时queryStr需要URLEncode处理，否则sign字段会出现问题
         String payUrl = Config.JS_PAY_URL + "?" + URLEncoder.encode(queryStr, Config.CHARSET);
-        System.out.println("-----pay url:" + URLEncoder.encode(queryStr, Config.CHARSET));
+        System.out.println("-----pay url:" + payUrl);
         resp.sendRedirect(payUrl);
 
     }

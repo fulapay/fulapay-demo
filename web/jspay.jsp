@@ -35,7 +35,6 @@
 <script type="text/javascript">
     function checkForm() {
         var totalFee = document.getElementById('totalFee').value;
-        console.log(totalFee + '----------------');
         if(!/^\d*[1-9]\d*$/.test(totalFee)){
             alert('请输入正整数金额！');
             return false;
