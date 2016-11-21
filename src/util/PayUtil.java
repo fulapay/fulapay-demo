@@ -5,7 +5,6 @@ import config.Config;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Iterator;
 import java.util.SortedMap;
@@ -60,7 +59,31 @@ public class PayUtil {
         sb.append("</xml>"); // 根元素
         return sb.toString();
     }
-    
+
+    /**
+     * 读取付啦异步通知notify回来的数据
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    public static SortedMap<String, String> readFulaNotify(HttpServletRequest request) throws Exception {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(request.getInputStream(), Config.CHARSET));
+        StringBuffer sb = new StringBuffer();
+        String line;
+        while ((line = bufferedReader.readLine()) != null) {
+            sb.append(line);
+        }
+        System.out.println("<<<<<<merchant notify string:" + sb.toString());
+        SortedMap<String, String> param = XmlUtil.doXMLParse(sb.toString());
+        System.out.println("<<<<<merchant notify param:" + param);
+        return param;
+    }
+
+    /**
+     * 验证付啦返回数据的合法性
+     * @param param
+     * @return
+     */
     public static boolean verifyFulaParam(SortedMap<String, String> param) {
         StringBuffer sb = new StringBuffer();
         Iterator<String> iterator = param.keySet().iterator();
@@ -78,34 +101,5 @@ public class PayUtil {
         return false;
 
     }
-
-    /**
-     * 验证付啦notify过来的数据
-     * @param request
-     * @return
-     */
-    public static boolean verifyNotify(HttpServletRequest request) {
-        try {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(request.getInputStream(), Config.CHARSET));
-            StringBuffer sb = new StringBuffer();
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                sb.append(line);
-            }
-            System.out.println("<<<<<<merchant notify string:" + sb.toString());
-            SortedMap<String, String> param = XmlUtil.doXMLParse(sb.toString());
-            System.out.println("<<<<<merchant notify param:" + param);
-            if(verifyFulaParam(param)){
-                return true;
-            }
-            return false;
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
 
 }
