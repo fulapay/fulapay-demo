@@ -21,7 +21,6 @@
         <option value="pay.wxpay.qrcode">微信二维码支付</option>
         <option value="pay.alipay.scan">支付宝扫码支付</option>
         <option value="pay.wxpay.scan">微信扫码支付</option>
-        <option value="pay.wxpay.js">微信公众号(js支付)</option>
     </select>
     <br><br>
 
