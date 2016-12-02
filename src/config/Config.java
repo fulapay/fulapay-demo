@@ -106,18 +106,11 @@ public class Config {
     public static final String MERCHANT_ENTER_TYPE_IMAGE_UPDATE = "2";
 
 
-    /********************************************fula 接口线上请求url*****************************************/
+    /********************************************fula 接口线上环境*****************************************/
     /**
-     * 付啦统一下单线上环境链接 无需修改
+     * 付啦开放平台接口线上域名
+     * 开发者调试环境测通后并且走完开发流程即可使用线上域名更换上面开发环境域名进行正式交易
      */
-    // 付啦统一支付请求地址
-//    public static final String UNIFIED_PAY_URL = "https://api.fulapay.com/pay/unified/url";
-//    // 付啦统一下单接口请求地址
-//    public static final String UNIFIED_ORDER_URL = "https://api.fulapay.com/pay/unifiedOrder";
-//    // 付啦订单结果查询接口请求地址
-//    public static final String QUERY_ORDER_URL = "https://api.fulapay.com/pay/query";
-//    // 商户进件接口请求地址
-//    public static final String PAY_MERCHANT_ENTER_URL = "https://api.fulapay.com/merchant/enter";
-//    // 用户后台接收付啦订单支付结果异步通知url，由用户自行定义，该接口为付啦系统异步主动通知用户接口，用户无需主动调用
-//    public static final String NOTIFY_URL = "https://api.fulapay.com/mchPay/notify";
+    public static final String ONLINE_DOMAIN = "https://api.fulapay.com";
+
 }
