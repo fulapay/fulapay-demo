@@ -41,7 +41,7 @@ public class FulaPay extends HttpServlet{
         param.put("service", service);
         // 如果 service为fula.xxx.scan 扫码支付需要authCode 参数（支付宝或者微信扫码支付的上显示的code）
         if(Config.PAY_WXPAY_SCAN.equals(service) || Config.PAY_ALIPAY_SCAN.equals(service)){
-            param.put("authCode", req.getParameter("authCode"));
+            param.put("auth_code", req.getParameter("authCode"));
         }
         param.put("app_id", Config.APP_ID);
         param.put("mch_id", Config.MCH_ID);

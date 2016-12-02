@@ -5,12 +5,7 @@ import util.HttpsUtil;
 import util.PayUtil;
 import util.XmlUtil;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -18,16 +13,15 @@ import java.util.TreeMap;
  * 付啦 订单查询 接口测试
  * Created by wuming on 16/10/24.
  */
-@WebServlet("/trade/query")
 public class TradeQuery extends HttpServlet{
 
-    public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
+    public static void main(String[] agrs) {
         SortedMap<String, String> param = new TreeMap();
         param.put("service", Config.PAY_TRADE_QUERY);
         param.put("app_id", Config.APP_ID);
         param.put("mch_id", Config.MCH_ID);
-        param.put("out_trade_no", "5467e445db7348ce9d4232ff8ce32dbf");
-        param.put("transaction_id", "20161102183126700df");
+        param.put("out_trade_no", "a52fe90f220c4f60a4f3f9a1e7ded936");
+        param.put("transaction_id", "201612011110471001639522197ce");
         param.put("nonce_str", "TzaETzfe4lgL2hOmfbx9XEttAEuZSuiE");
 
         // 商户构建请求参数
