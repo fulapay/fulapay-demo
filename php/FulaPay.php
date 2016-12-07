@@ -140,4 +140,44 @@ class FulaPay extends Controller {
         openssl_free_key($res);
         return base64_encode($signature);
     }
+
+    function http($url, $params = [], $method = 'GET', $httpHeader = '', $ssl = false)
+    {
+        $opts = [
+        CURLOPT_TIMEOUT        => 60,
+        CURLOPT_RETURNTRANSFER => 1,
+        CURLOPT_SSL_VERIFYPEER => false,
+        CURLOPT_SSL_VERIFYHOST => false,
+        ];
+        /* 根据请求类型设置特定参数 */
+        switch (strtoupper($method)) {
+            case 'GET':
+                $getQuerys         = !empty($params) ? '?' . urldecode(http_build_query($params)) : '';
+                $opts[CURLOPT_URL] = $url . $getQuerys;
+                // Log::record($opts[CURLOPT_URL]);
+                break;
+            case 'POST':
+                $opts[CURLOPT_URL]        = $url;
+                $opts[CURLOPT_POST]       = 1;
+                $opts[CURLOPT_POSTFIELDS] = $params;
+                break;
+        }
+        /* 初始化并执行curl请求 */
+        $ch = curl_init();
+        if (!empty($httpHeader) && is_array($httpHeader)) {
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $httpHeader);
+        }
+        curl_setopt_array($ch, $opts);
+        curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_0);
+        $data   = curl_exec($ch);
+        $err    = curl_errno($ch);
+        $errmsg = curl_error($ch);
+        curl_close($ch);
+        if ($err > 0) {
+            Log::error('CURL:' . $errmsg);
+            return false;
+        } else {
+            return $data;
+        }
+    }
 }
