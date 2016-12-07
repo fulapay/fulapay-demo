@@ -36,7 +36,6 @@ public class MerchantEnter {
             String filePath = "/Users/wuming/Pictures/cat.jpg";
             String base64Str =  ImageUtil.encodeBase64File(filePath);
             // enter merchant photo
-            param.put("bank_front_image", base64Str); // 银行卡正面
             if ("1".equals(param.get("is_company"))){
                 // 对公帐户需要提供营业执照正面照片
                 param.put("biz_license_image", base64Str); // 营业执照照片
@@ -45,6 +44,7 @@ public class MerchantEnter {
                 param.put("id_front_image", base64Str); // 身份证正面
                 param.put("id_back_image", base64Str); // 身份证反而
                 param.put("id_hand_image", base64Str); // 手机身份证
+                param.put("bank_front_image", base64Str); // 银行卡正面
             }
         } else {
             // enter merchant info
