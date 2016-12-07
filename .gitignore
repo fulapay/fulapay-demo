@@ -2,6 +2,7 @@
 *.iml
 *.iwa
 *.ipr
+.DS_Store
 out
 rebel.xml
 

@@ -6,11 +6,9 @@ use think\Controller;
 use app\index\model\Merchant;
 use think\Log;
 
-class FulaPay extends Controller
-{
-// '88796572001743339520'
-    public static function fulaOrder($tranAmt, $merOrderNum, $orderInfo, $payparam, $payment)
-    {
+class FulaPay extends Controller {
+
+    public static function fulaOrder($tranAmt, $merOrderNum, $orderInfo, $payparam, $payment) {
         switch ($payment) {
             case 'wx':
                 $service = 'pay.wxpay.qrcode';
@@ -20,9 +18,9 @@ class FulaPay extends Controller
                 break;
         }
         Log::record($payparam['mid']);
-        $url = 'https://api.fulapay.com/pay/unifiedOrder';
+        $url = 'https://sandapi.fulapay.com/pay/unifiedOrder';
         $data = array(
-            'app_id' => '1000022',
+            'app_id' => '1000015',
             'body' => $orderInfo,
             'charset' => 'UTF-8',
             'mch_create_ip' => '121.43.161.81',
@@ -47,8 +45,7 @@ class FulaPay extends Controller
         }
     }
 
-    public static function fulaJsOrder($tranAmt, $merOrderNum, $orderInfo, $payparam, $payment)
-    {
+    public static function fulaJsOrder($tranAmt, $merOrderNum, $orderInfo, $payparam, $payment) {
         switch ($payment) {
             case 'wx':
                 $service = 'pay.wxpay.js';
@@ -59,7 +56,7 @@ class FulaPay extends Controller
         }
         $url = 'https://api.fulapay.com/pay/jspay';
         $data = array(
-            'app_id' => '1000022',
+            'app_id' => '1000015',
             'body' => $orderInfo,
             'charset' => 'UTF-8',
             'mch_create_ip' => '121.43.161.81',
@@ -78,15 +75,13 @@ class FulaPay extends Controller
         return $result;
     }
 
-    public function fulaEnter($cid)
-    {
+    public function fulaEnter($cid) {
         $merInfo = Merchant::getMerForEnter($cid);
         $bankInfo = json_decode($merInfo['bank_info'], true);
 		$payParams = json_decode($merInfo['pay_params'],true);
-		
-        $url = 'https://api.fulapay.com/merchant/enter';
+        $url = 'https://sandapi.fulapay.com/merchant/enter';
         $data = array(
-            'app_id' => '1000022',
+            'app_id' => '1000015',
             'charset' => 'UTF-8',
             'nonce_str' => uniqid(),
             'service' => 'pay.merchant.enter',
@@ -123,12 +118,9 @@ class FulaPay extends Controller
 		}
     }
 
-    
-    private static function makeString($data)
-    {
+    private static function makeString($data) {
         ksort($data);
         $flag = 1;
-
         foreach ($data as $k => $v) {
             if ($flag) {
                 $string = $k.'='.$v;
@@ -140,9 +132,8 @@ class FulaPay extends Controller
         return $string;
     }
 
-    private static function makeSign($string)
-    {
 
+    private static function makeSign($string) {
         $res = openssl_pkey_get_private(file_get_contents('private.pem'), '4008778004');
         $signature = '';
         openssl_sign($string, $signature, $res);
