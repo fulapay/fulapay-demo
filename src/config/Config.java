@@ -51,6 +51,8 @@ public class Config {
     public static final String NOTIFY_URL = "https://sandapi.fulapay.com/mchPay/notify";
     // 支付宝或支付 JS支付结果同步跳转URL，此链接仅为逻辑跳转，具体支付结果及商户订单状态修改根据notify结果处理
     public static final String RETURN_URL = "https://sandapi.fulapay.com/mchPay/return";
+    // 付啦短信发送请求接口
+    public static final String SEND_SMS_URL = "https://sandapi.fulapay.com/sms/send";
 
     /**
      * UNIFIED_PAY_URL (service参数仅能为以下数据)
@@ -73,7 +75,6 @@ public class Config {
     // 统一下单
     public static final String PAY_WXPAY_QRCODE = "pay.wxpay.qrcode";
     public static final String PAY_WXPAY_SCAN = "pay.wxpay.scan";
-
     public static final String PAY_ALIPAY_QRCODE = "pay.alipay.qrcode";
     public static final String PAY_ALIPAY_SCAN = "pay.alipay.scan";
 
@@ -94,6 +95,12 @@ public class Config {
      * 商户进件接口service 常量声明
       */
     public static final String PAY_MERCHANT_ENTER = "pay.merchant.enter";
+
+    /**
+     * SEND_SMS_URL(service参数仅能为以下数据)
+     * 付啦短信发送接口service常量声明
+     */
+    public static final String SMS_SEND = "sms.send";
 
     /**
      * 商户进件接口type 常量声明

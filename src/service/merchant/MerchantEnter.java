@@ -1,4 +1,4 @@
-package service;
+package service.merchant;
 
 import config.Config;
 import util.HttpsUtil;
@@ -21,8 +21,6 @@ public class MerchantEnter {
         param.put("type", Config.MERCHANT_ENTER_TYPE_BASE_ADD);
 //        param.put("type", Config.MERCHANT_ENTER_TYPE_BASE_UPDATE);
 //        param.put("type", Config.MERCHANT_ENTER_TYPE_IMAGE_UPDATE);
-        param.put("app_id", Config.APP_ID);
-        param.put("nonce_str", "TzaETzfe4lgL2hOmfbx9XEttAEuZSuiE");
         // TODO wuming 16/12/6 下午2:54 增加支持对公帐户
         param.put("is_company", "1"); // "1" 对公帐户 "0" 对私帐户
 
@@ -72,21 +70,19 @@ public class MerchantEnter {
         String xmlStr = PayUtil.buildRequestXml(param);
         System.out.println(">>>>post xmlStr: " +  xmlStr);
         String resText = HttpsUtil.post(Config.PAY_MERCHANT_ENTER_URL, xmlStr, Config.CHARSET);
-        System.out.println("<<<<merchant resText: " + resText);
+        System.out.println("<<<<resText: " + resText);
         // 验签后取得支付数据
-        if (resText != null) {
-            try {
-                SortedMap<String, String> result = XmlUtil.doXMLParse(resText);
-                System.out.println("<<<<merchant res map: " + result);
-                if (PayUtil.verifyFulaParam(result)) {
-                    System.out.println("<<<<merchant res verrify success-----------------");
+        try {
+            SortedMap<String, String> result = XmlUtil.doXMLParse(resText);
+            System.out.println("<<<<res map: " + result);
+            if (PayUtil.verifyFulaParam(result)) {
+                System.out.println("<<<<verify success-----------------");
 
-                } else {
+            } else {
 
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

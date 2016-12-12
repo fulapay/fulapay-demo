@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Iterator;
 import java.util.SortedMap;
+import java.util.UUID;
 
 /**
  * Created by wuming on 16/10/20.
@@ -37,21 +38,23 @@ public class PayUtil {
     /**
      * 构建POST方法XML请求数据
      * 商家后台使用私钥签名后请求付啦
-     * @param result
+     * @param param
      * @return
      */
-    public static String buildRequestXml(SortedMap<String, String> result) {
-        result.put("charset", Config.CHARSET);
-        result.put("sign_type", Config.SIGN_TYPE);
+    public static String buildRequestXml(SortedMap<String, String> param) {
+        param.put("app_id", Config.APP_ID);
+        param.put("nonce_str", UUID.randomUUID().toString().replaceAll("-", ""));
+        param.put("charset", Config.CHARSET);
+        param.put("sign_type", Config.SIGN_TYPE);
         StringBuffer sb = new StringBuffer("<?xml version=\"1.0\" encoding=\"UTF-8\" ?><xml>");
         StringBuffer buffer = new StringBuffer();
-        Iterator iterator = result.keySet().iterator();
+        Iterator iterator = param.keySet().iterator();
         while (iterator.hasNext()) {
             String key = (String) iterator.next();
             sb.append("<" + key + ">");
-            sb.append(result.get(key));
+            sb.append(param.get(key));
             sb.append("</" + key + ">");
-            buffer.append(key).append("=").append(result.get(key)).append("&");
+            buffer.append(key).append("=").append(param.get(key)).append("&");
         }
         String signStr = buffer.substring(0, buffer.length() - 1).toString();
         String sign = RSA.sign(signStr, Config.MCH_PRIVATE_KEY, Config.CHARSET);

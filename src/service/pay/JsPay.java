@@ -1,4 +1,4 @@
-package service;
+package service.pay;
 
 import config.Config;
 import util.PayUtil;

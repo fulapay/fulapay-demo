@@ -1,4 +1,4 @@
-package service;
+package service.pay;
 
 import config.Config;
 import net.sf.json.JSONObject;
@@ -43,13 +43,11 @@ public class FulaPay extends HttpServlet{
         if(Config.PAY_WXPAY_SCAN.equals(service) || Config.PAY_ALIPAY_SCAN.equals(service)){
             param.put("auth_code", req.getParameter("authCode"));
         }
-        param.put("app_id", Config.APP_ID);
         param.put("mch_id", Config.MCH_ID);
         param.put("out_trade_no", UUID.randomUUID().toString().replaceAll("-", ""));
         param.put("total_fee", req.getParameter("totalFee"));
         param.put("body", "支付测试");
         param.put("mch_create_ip", "127.0.0.1");
-        param.put("nonce_str", "TzaETzfe4lgL2hOmfbx9XEttAEuZSuiE");
         param.put("notify_url", Config.NOTIFY_URL);
         // 商户构建请求参数
         String xmlStr = PayUtil.buildRequestXml(param);
@@ -58,37 +56,33 @@ public class FulaPay extends HttpServlet{
         // 验签后取得支付数据
         Map<String, Object> responseMap = new HashMap<>();
         PrintWriter out = null;
-        if (resText != null) {
-            try {
-                SortedMap<String, String> result = XmlUtil.doXMLParse(resText);
-                if (PayUtil.verifyFulaParam(result)) {
-                    String resCode = result.get("res_code");
-                    String resMsg = result.get("res_msg");
-                    String resultCode = result.get("result_code");
-                    if ("0000".equals(resCode) && "S".equals(resultCode)) {
-                        if(Config.PAY_WXPAY_QRCODE.equals(service) || Config.PAY_ALIPAY_QRCODE.equals(service)){
-                            // TODO payInfo 及付啦支付返回的二维码数据,商户只需要利用这个数据生成二维码后即可使用支付宝扫码支付
-                            // 二维码支付
-                            String payInfo = result.get("pay_info");
-                            System.out.println("支付二维码数据" + payInfo);
-                            responseMap.put("payInfo", payInfo);
-                            responseMap.put("success", true);
-                        } else if(Config.PAY_WXPAY_SCAN.equals(service) || Config.PAY_ALIPAY_SCAN.equals(service)) {
-                            // 扫码支付 同步返回成功
-                            responseMap.put("success", true);
-                        }
-                    } else {
-                        responseMap.put("error", resCode + ":" + resMsg);
+        try {
+            SortedMap<String, String> result = XmlUtil.doXMLParse(resText);
+            if (PayUtil.verifyFulaParam(result)) {
+                String resCode = result.get("res_code");
+                String resMsg = result.get("res_msg");
+                String resultCode = result.get("result_code");
+                if ("0000".equals(resCode) && "S".equals(resultCode)) {
+                    if(Config.PAY_WXPAY_QRCODE.equals(service) || Config.PAY_ALIPAY_QRCODE.equals(service)){
+                        // TODO payInfo 及付啦支付返回的二维码数据,商户只需要利用这个数据生成二维码后即可使用支付宝扫码支付
+                        // 二维码支付
+                        String payInfo = result.get("pay_info");
+                        System.out.println("支付二维码数据" + payInfo);
+                        responseMap.put("payInfo", payInfo);
+                        responseMap.put("success", true);
+                    } else if(Config.PAY_WXPAY_SCAN.equals(service) || Config.PAY_ALIPAY_SCAN.equals(service)) {
+                        // 扫码支付 同步返回成功
+                        responseMap.put("success", true);
                     }
                 } else {
-                    responseMap.put("error", "数据验签失败");
+                    responseMap.put("error", resCode + ":" + resMsg);
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
-                responseMap.put("error", "代付请求返回数据解析异常");
+            } else {
+                responseMap.put("error", "数据验签失败");
             }
-        } else{
-            responseMap.put("error", "代付请求响应为null");
+        } catch (Exception e) {
+            e.printStackTrace();
+            responseMap.put("error", "代付请求返回数据解析异常");
         }
         System.out.println("响应结果: " + responseMap);
 

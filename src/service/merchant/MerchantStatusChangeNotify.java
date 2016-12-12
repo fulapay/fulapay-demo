@@ -1,4 +1,4 @@
-package service;
+package service.merchant;
 
 import util.PayUtil;
 
@@ -11,18 +11,19 @@ import java.io.IOException;
 import java.util.SortedMap;
 
 /**
- * 付啦 统一下单后支付回调 接口测试
- * Created by wuming on 16/10/24.
+ * 商户状态改变异常通知接口
+ * Created by wuming on 16/11/18.
  */
-@WebServlet("/notify")
-public class Notify extends HttpServlet{
+@WebServlet("/merchant/status/change/notify")
+public class MerchantStatusChangeNotify extends HttpServlet{
 
-    public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
+    public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        System.out.println("-----merchant status change notify---------");
         try {
             SortedMap<String, String> param = PayUtil.readFulaNotify(req);
             if(PayUtil.verifyFulaParam(param)){
                 // 根据修改业务逻辑 具体参数参见API文档
-                System.out.println(param);
+                System.out.println("notify param: " + param);
                 res.getWriter().print("success");
             }
         } catch (Exception e) {
