@@ -46,7 +46,7 @@ public class PayUtil {
         param.put("nonce_str", UUID.randomUUID().toString().replaceAll("-", ""));
         param.put("charset", Config.CHARSET);
         param.put("sign_type", Config.SIGN_TYPE);
-        StringBuffer sb = new StringBuffer("<?xml version=\"1.0\" encoding=\"UTF-8\" ?><xml>");
+        StringBuffer sb = new StringBuffer("<?xml version=\"1.0\" encoding=\"UTF-8\"?><xml>");
         StringBuffer buffer = new StringBuffer();
         Iterator iterator = param.keySet().iterator();
         while (iterator.hasNext()) {
