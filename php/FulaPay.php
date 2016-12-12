@@ -180,4 +180,64 @@ class FulaPay extends Controller {
             return $data;
         }
     }
+
+    //*********************notify*****************
+    public function Fula()
+        {
+            $result = xml2array(file_get_contents('php://input'));
+    		//验证签名
+            $checkSign = FulaPay::notifySignCheck($result);
+            if ($checkSign && $result['result_code'] == 'S' && $result['res_code'] == '0000') {
+                //// 商户业务逻辑
+                // ...
+                // 返回success字符串
+                echo 'success';
+            }
+        }
+
+    //*********************签名验证，供notify使用**********
+    public static function notifySignCheck($result)
+        {
+            $sign = $result['sign'];
+            $sign=base64_decode($sign);
+            unset($result['sign']);
+            $string = self::makeString($result);
+    		//获取付啦的公钥信息
+            $res = openssl_pkey_get_public(file_get_contents('fula_public_key.pem'));
+    		//用公钥验证签名
+            $check = openssl_verify($string, $sign, $res);
+            openssl_free_key($res);
+            return $check;
+        }
+
+    //**********************xml与array格式转换**********
+    function xml2array($xml)
+    {
+        $data = (array) simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA);
+        return array_change_key_case($data, CASE_LOWER);
+    }
+
+        /**
+         * 将数组转换成XML string
+         * @param  array $array
+         * @return xml
+         */
+    function array2xml($array = [])
+    {
+        if (!is_array($array)
+        || count($array) <= 0) {
+            Log::error("array2xml --> 数组数据异常！");
+        }
+
+        $xml = "<xml>";
+        foreach ($array as $key => $val) {
+            if (is_numeric($val)) {
+                $xml.="<".$key.">".$val."</".$key.">";
+            } else {
+                $xml.="<".$key."><![CDATA[".$val."]]></".$key.">";
+            }
+        }
+        $xml.="</xml>";
+        return $xml;
+    }
 }
