@@ -1,14 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xml>
-    <charset>UTF-8</charset>
-    <nonce_str>8Cqw0bg23ieryGGeW7OzzhdywyRKyxdJ</nonce_str>
-    <res_code>0000</res_code>
-    <res_msg>请求成功:请求成功</res_msg>
-    <result_code>S</result_code>
-    <service>sms.send</service>
-    <sign_type>RSA</sign_type>
-    <version>1.0</version>
-    <sign>
-        mKabF7tXyyBwX9n81ikfWxsBJPgvq4mCdazpId1vtIz3enQBtMLtDdM4us737nJJGXSoflH4+Iqw6yuTpafNHfhG89+zuXiadwsDF0ERJcklJ0/bjZKvOvy2Kev8CqjlfDUTl2nwoBn12XgJ36uCqZOxFLAJcBRKPUDfr3PmLiI=
-    </sign>
+
 </xml>
