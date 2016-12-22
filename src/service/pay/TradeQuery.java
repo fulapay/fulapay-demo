@@ -15,7 +15,7 @@ import java.util.TreeMap;
  */
 public class TradeQuery extends HttpServlet{
 
-    public static void main(String[] agrs) {
+    public static void main(String[] args) {
         SortedMap<String, String> param = new TreeMap();
         param.put("service", Config.PAY_TRADE_QUERY);
         param.put("mch_id", Config.MCH_ID);

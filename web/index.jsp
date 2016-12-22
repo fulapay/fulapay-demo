@@ -57,10 +57,12 @@
 
     document.getElementById("submit").addEventListener('click', function () {
         document.getElementById("error").style.display = 'none';
+        $('#qrcode').html("努力出码中...");
         $.post('/fulaPay', $('#form').serialize(), function (data) {
             if (data.success) {
                 var service = $("#service").val();
                 if(service == 'pay.alipay.qrcode' || service == 'pay.wxpay.qrcode'){
+                    $('#qrcode').html("");
                     $('#qrcode').qrcode(data.payInfo);
                 } else{
                     // 扫码支付同步返回支付结果
