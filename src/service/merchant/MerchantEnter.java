@@ -25,16 +25,16 @@ public class MerchantEnter {
         param.put("is_company", "1"); // "1" 对公帐户 "0" 对私帐户
 
         // 如果是更新、或者进件照片信息需要传merchant_no,
-        if (!Config.MERCHANT_ENTER_TYPE_BASE_ADD.equals(param.get("type"))){
+        if (!Config.MERCHANT_ENTER_TYPE_BASE_ADD.equals(param.get("type"))) {
             param.put("merchant_no", "88795891822101667840"); // merchant_no为调用type=0时返回的商户号
         }
 
         // 设置商户图片信息
-        if(Config.MERCHANT_ENTER_TYPE_IMAGE_UPDATE.equals(param.get("type"))){
+        if (Config.MERCHANT_ENTER_TYPE_IMAGE_UPDATE.equals(param.get("type"))) {
             String filePath = "/Users/wuming/Pictures/cat.jpg";
-            String base64Str =  ImageUtil.encodeBase64File(filePath);
+            String base64Str = ImageUtil.encodeBase64File(filePath);
             // enter merchant photo
-            if ("1".equals(param.get("is_company"))){
+            if ("1".equals(param.get("is_company"))) {
                 // 对公帐户需要提供营业执照正面照片
                 param.put("biz_license_image", base64Str); // 营业执照照片
             } else {
@@ -51,7 +51,7 @@ public class MerchantEnter {
             // 商户银行信息
             param.put("bank_name", "招商银行"); // 清算银行名称
             param.put("bank_account", "6225885866688888"); // 清算银行帐户
-            if ("1".equals(param.get("is_company"))){
+            if ("1".equals(param.get("is_company"))) {
                 // 对公帐户需要提供营业执照号和组织机构码
                 param.put("biz_license_no", "11223344"); // 营业执照号
                 param.put("org_code", "55332211"); // 组织机构码
@@ -68,7 +68,7 @@ public class MerchantEnter {
         // 商户构建请求参数
         System.out.println(">>>>post sign map: " + param);
         String xmlStr = PayUtil.buildRequestXml(param);
-        System.out.println(">>>>post xmlStr: " +  xmlStr);
+        System.out.println(">>>>post xmlStr: " + xmlStr);
         String resText = HttpsUtil.post(Config.PAY_MERCHANT_ENTER_URL, xmlStr, Config.CHARSET);
         System.out.println("<<<<resText: " + resText);
         // 验签后取得支付数据

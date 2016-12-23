@@ -16,10 +16,11 @@ public class Sms {
     public static void main(String[] args) {
         SortedMap<String, String> param = new TreeMap();
         param.put("service", Config.SMS_SEND);
-        param.put("tpl_id", "14"); // 测试环境无需修改，真实环境根据付啦开放后台申请的模板ID真实填写
+        param.put("tpl_id", "1"); // 测试环境无需修改，真实环境根据付啦开放后台申请的模板ID真实填写
         // tpl 您本次操作的验证码为#number#，请在#n#分钟内有效。
-        param.put("content", "您本次操作的验证码为123456"); // 短信内容
-        param.put("mobile", "13123936686"); // 要发送到的手机号
+        param.put("content", "您次操作的验证码为1234，请尽快输入验证码后完成操作，30分钟内有效。"); // 短信内容
+        param.put("mobile", "18658161323"); // 要发送到的手机号 多个手机号码请以英文逗号(,)隔开
+
         // 商户构建请求参数
         System.out.println(">>>>post sign map: " + param);
         String xmlStr = PayUtil.buildRequestXml(param);
