@@ -44,7 +44,8 @@ public class Config {
     // 付啦统一下单接口请求地址
     public static final String UNIFIED_ORDER_URL = "https://sandapi.fulapay.com/pay/unifiedOrder";
     // 付啦订单结果查询接口请求地址
-    public static final String QUERY_ORDER_URL = "https://sandapi.fulapay.com/pay/query";
+    public static final String TRADE_QUERY_URL = "https://sandapi.fulapay.com/trade/query";
+    public static final String TRADE_QUERY_PAGE_URL = "https://sandapi.fulapay.com/trade/query/page";
     // 商户进件接口请求地址
     public static final String PAY_MERCHANT_ENTER_URL = "https://sandapi.fulapay.com/merchant/enter";
     // 用户后台接收付啦订单支付结果异步通知url，由用户自行定义，该接口为付啦系统异步主动通知用户接口，用户无需主动调用
@@ -82,7 +83,8 @@ public class Config {
      * QUERY_ORDER_URL
      * 订单查询接口service 常量声明
      */
-    public static final String PAY_TRADE_QUERY = "pay.trade.query";
+    public static final String TRADE_QUERY = "trade.query";
+    public static final String TRADE_QUERY_PAGE = "trade.query.page";
 
     /**
      * TODO 开发中
