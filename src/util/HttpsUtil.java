@@ -97,11 +97,11 @@ public class HttpsUtil {
     /**
      * https post method
      * @param url
-     * @param xmlParm
+     * @param param json 或xml字符串
      * @param charset
      * @return
      */
-    public static String post(String url, String xmlParm, String charset) {
+    public static String post(String url, String param, String charset) {
         if (null == charset) {
             charset = "UTF-8";
         }
@@ -111,7 +111,7 @@ public class HttpsUtil {
         try {
             httpClient = new SSLClient();
             httpPost = new HttpPost(url);
-            httpPost.setEntity(new StringEntity(xmlParm, charset));
+            httpPost.setEntity(new StringEntity(param, charset));
             HttpResponse response = httpClient.execute(httpPost);
             if (response != null) {
                 HttpEntity resEntity = response.getEntity();
@@ -124,6 +124,5 @@ public class HttpsUtil {
         }
         return result;
     }
-
 
 }

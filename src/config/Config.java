@@ -43,6 +43,7 @@ public class Config {
     public static final String JS_PAY_URL = "https://api.fulapay.com/pay/jspay";
     // 付啦统一下单接口请求地址
     public static final String UNIFIED_ORDER_URL = "https://sandapi.fulapay.com/pay/unifiedOrder";
+    public static final String MPOS_PREPARE_URL = "https://sandapi.fulapay.com/pay/mpos/prepare";
     // 付啦订单结果查询接口请求地址
     public static final String TRADE_QUERY_URL = "https://sandapi.fulapay.com/trade/query";
     public static final String TRADE_QUERY_PAGE_URL = "https://sandapi.fulapay.com/trade/query/page";
@@ -79,6 +80,10 @@ public class Config {
     public static final String PAY_ALIPAY_QRCODE = "pay.alipay.qrcode";
     public static final String PAY_ALIPAY_SCAN = "pay.alipay.scan";
 
+    /**
+     * 大额转帐service
+     */
+    public static final String PAY_MPOS_SUPER_TRANSFER = "pay.mpos.super.transfer";
     /**
      * QUERY_ORDER_URL
      * 订单查询接口service 常量声明

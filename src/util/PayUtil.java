@@ -2,6 +2,7 @@ package util;
 
 
 import config.Config;
+import net.sf.json.JSONObject;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
@@ -64,6 +65,35 @@ public class PayUtil {
     }
 
     /**
+     * 生成rsa签名
+     * @param param
+     * @return
+     */
+    public static String buildRequestJson(SortedMap<String, String> param) {
+        JSONObject object = new JSONObject();
+        try {
+            param.put("app_id", Config.APP_ID);
+            param.put("nonce_str", UUID.randomUUID().toString().replaceAll("-", ""));
+            param.put("charset", Config.CHARSET);
+            param.put("sign_type", Config.SIGN_TYPE);
+            StringBuffer buffer = new StringBuffer();
+            Iterator iterator = param.keySet().iterator();
+            while (iterator.hasNext()) {
+                String key = (String) iterator.next();
+                object.put(key, param.get(key));
+                buffer.append(key).append("=").append(param.get(key)).append("&");
+            }
+            String signStr = buffer.substring(0, buffer.length() - 1).toString();
+            String sign = RSA.sign(signStr, Config.MCH_PRIVATE_KEY, Config.CHARSET);
+            object.put("sign", sign);
+            return object.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
      * 读取付啦异步通知notify回来的数据
      * @param request
      * @return
@@ -102,7 +132,6 @@ public class PayUtil {
             return true;
         }
         return false;
-
     }
 
 }
