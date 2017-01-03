@@ -2,21 +2,26 @@ package service.pay;
 
 import config.Config;
 import net.sf.json.JSONObject;
+import org.junit.Test;
 import util.HttpsUtil;
 import util.PayUtil;
 
-import javax.servlet.http.HttpServlet;
-import java.util.*;
+import java.util.SortedMap;
+import java.util.TreeMap;
+import java.util.UUID;
 
 /**
  * mpos 大额转帐
  * JSON 格式请求
  * Created by wuming on 16/10/20.
  */
-public class MposPay extends HttpServlet {
+public class Mpos {
 
-
-    public static void main(String[] args) {
+    /**
+     * 预下单
+     */
+    @Test
+    public void prepare() {
         SortedMap<String, String> param = new TreeMap();
         param.put("service", Config.PAY_MPOS_SUPER_TRANSFER);
         param.put("mch_id", Config.MCH_ID);
