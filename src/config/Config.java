@@ -43,7 +43,13 @@ public class Config {
     public static final String JS_PAY_URL = "https://api.fulapay.com/pay/jspay";
     // 付啦统一下单接口请求地址
     public static final String UNIFIED_ORDER_URL = "https://sandapi.fulapay.com/pay/unifiedOrder";
-    public static final String MPOS_PREPARE_URL = "https://sandapi.fulapay.com/pay/mpos/prepare";
+    // mpos 支付
+    public static final String MPOS_PREPARE_URL = "https://sandapi.fulapay.com/mpos/prepare";
+    public static final String MPOS_PAY_URL = "https://sandapi.fulapay.com/mpos/pay";
+    public static final String MPOS_TRANSFOR_URL = "https://sandapi.fulapay.com/mpos/transfer";
+    public static final String MPOS_CHECKIN_URL = "https://sandapi.fulapay.com/mpos/checkin";
+    public static final String MPOS_BINDING_URL = "https://sandapi.fulapay.com/mpos/binding";
+    public static final String MPOS_BALANCE_QUERY_URL = "https://sandapi.fulapay.com/mpos/balance/query";
     // 付啦订单结果查询接口请求地址
     public static final String TRADE_QUERY_URL = "https://sandapi.fulapay.com/trade/query";
     public static final String TRADE_QUERY_PAGE_URL = "https://sandapi.fulapay.com/trade/query/page";
@@ -83,7 +89,19 @@ public class Config {
     /**
      * 大额转帐service
      */
-    public static final String PAY_MPOS_SUPER_TRANSFER = "pay.mpos.super.transfer";
+    // mpos
+    // prepare接口service数据
+    public static final String PAY_MPOS_PREPARE = "pay.mpos.prepare";
+    public static final String PAY_MPOS_PREPARE_JF = "pay.mpos.prepare.jf";
+    public static final String PAY_POS_PREPARE = "pay.pos.prepare";
+    public static final String PAY_MPOS_PREPARE_SUPER_TRANSFER = "pay.mpos.prepare.super.transfer";
+    // mpos service 数据
+    public static final String PAY_MPOS_PAY = "pay.mpos.pay";
+    public static final String PAY_MPOS_TRANSFER = "pay.mpos.transfer";
+    public static final String PAY_MPOS_CHECKIN = "pay.mpos.checkin";
+    public static final String PAY_MPOS_BINDING = "pay.mpos.binding";
+    public static final String PAY_MPOS_BALANCE_QUERY = "pay.mpos.balance.query";
+
     /**
      * QUERY_ORDER_URL
      * 订单查询接口service 常量声明

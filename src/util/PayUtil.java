@@ -3,6 +3,7 @@ package util;
 
 import config.Config;
 import net.sf.json.JSONObject;
+import org.apache.commons.lang.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
@@ -72,10 +73,10 @@ public class PayUtil {
     public static String buildRequestJson(SortedMap<String, String> param) {
         JSONObject object = new JSONObject();
         try {
-            param.put("app_id", Config.APP_ID);
-            param.put("nonce_str", UUID.randomUUID().toString().replaceAll("-", ""));
+            param.put("appId", Config.APP_ID);
+            param.put("nonceStr", UUID.randomUUID().toString().replaceAll("-", ""));
             param.put("charset", Config.CHARSET);
-            param.put("sign_type", Config.SIGN_TYPE);
+            param.put("signType", Config.SIGN_TYPE);
             StringBuffer buffer = new StringBuffer();
             Iterator iterator = param.keySet().iterator();
             while (iterator.hasNext()) {
@@ -128,8 +129,8 @@ public class PayUtil {
         }
         String verifyString = sb.substring(0, sb.length() - 1).toString();
         // 使用我方公私钥进行验签
-        if (RSA.verify(verifyString, param.get("sign"), Config.PUBLIC_KEY, Config.CHARSET)) {
-            return true;
+        if(param.containsKey("sign") && StringUtils.isNotBlank(param.get("sign"))) {
+            return RSA.verify(verifyString, param.get("sign"), Config.PUBLIC_KEY, Config.CHARSET);
         }
         return false;
     }
