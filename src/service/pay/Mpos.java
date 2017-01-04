@@ -32,8 +32,9 @@ public class Mpos {
         param.put("notifyUrl", Config.NOTIFY_URL);
         // 商户构建请求参数
         String jsonStr = PayUtil.buildRequestJson(param);
+        System.out.println("---->>>>request data: " + jsonStr);
         String resText = HttpsUtil.post(Config.MPOS_PREPARE_URL, jsonStr, Config.CHARSET);
-        System.out.println("-----resText: " + resText);
+        System.out.println("<<<<-----resText: " + resText);
         // 验签后取得支付数据
         try {
             SortedMap<String, String> result = new TreeMap<>();
@@ -68,20 +69,21 @@ public class Mpos {
         param.put("service", Config.PAY_MPOS_PAY);
         param.put("orderId", UUID.randomUUID().toString().replaceAll("-", ""));
         param.put("amount", "600");
-        param.put("ksn", "");
-        param.put("deviceName", "");
-        param.put("track2Data", "");
+        param.put("ksn", "12321");
+        param.put("deviceName", "test");
+        param.put("track2Data", "test");
         param.put("track3Data", ""); // 选填
-        param.put("icData", "");
-        param.put("serialNum", "");
+        param.put("icData", "test");
+        param.put("serialNum", "test");
         param.put("withdrawType", ""); // 选填
-        param.put("accountNo", "");
-        param.put("pinblock", "");
-        param.put("validDate", "");
-        param.put("mobile", "");
+        param.put("accountNo", "test");
+        param.put("pinblock", "test");
+        param.put("validDate", "20170104");
+        param.put("mobile", "15280533638");
         param.put("recAccountNo", ""); // 选填
         // 商户构建请求参数
         String jsonStr = PayUtil.buildRequestJson(param);
+        System.out.println("request data: " + jsonStr);
         String resText = HttpsUtil.post(Config.MPOS_PAY_URL, jsonStr, Config.CHARSET);
         System.out.println("-----resText: " + resText);
         // 验签后取得支付数据
@@ -117,20 +119,21 @@ public class Mpos {
         param.put("service", Config.PAY_MPOS_TRANSFER);
         param.put("orderId", UUID.randomUUID().toString().replaceAll("-", ""));
         param.put("amount", "600");
-        param.put("ksn", "");
-        param.put("deviceName", "");
-        param.put("track2Data", "");
+        param.put("ksn", "12321");
+        param.put("deviceName", "test");
+        param.put("track2Data", "test");
         param.put("track3Data", ""); // 选填
-        param.put("icData", "");
-        param.put("serialNum", "");
+        param.put("icData", "test");
+        param.put("serialNum", "1234567");
         param.put("withdrawType", ""); // 选填
-        param.put("accountNo", "");
-        param.put("pinblock", "");
-        param.put("validDate", "");
-        param.put("mobile", "");
+        param.put("accountNo", "test");
+        param.put("pinblock", "test");
+        param.put("validDate", "20190104");
+        param.put("mobile", "15280533638");
         param.put("recAccountNo", ""); // 选填
         // 商户构建请求参数
         String jsonStr = PayUtil.buildRequestJson(param);
+        System.out.println("request data: " + jsonStr);
         String resText = HttpsUtil.post(Config.PAY_MPOS_TRANSFER, jsonStr, Config.CHARSET);
         System.out.println("-----resText: " + resText);
         // 验签后取得支付数据
@@ -165,18 +168,19 @@ public class Mpos {
     public void balanceQuery() {
         SortedMap<String, String> param = new TreeMap();
         param.put("service", Config.PAY_MPOS_BALANCE_QUERY);
-        param.put("mobile", "");
-        param.put("ksn", "");
-        param.put("deviceName", "");
-        param.put("track2Data", "");
-        param.put("track3Data", ""); // 选填
-        param.put("icData", "");
-        param.put("serialNum", "");
-        param.put("accountNo", "");
-        param.put("pinblock", "");
-        param.put("validDate", "");
+        param.put("mobile", "15280533638");
+        param.put("ksn", "12321");
+        param.put("deviceName", "test");
+        param.put("track2Data", "test");
+        param.put("track3Data", "test"); // 选填
+        param.put("icData", "test");
+        param.put("serialNum", "test");
+        param.put("accountNo", "test");
+        param.put("pinblock", "test");
+        param.put("validDate", "20170104"); //yyyyMMdd 格式
         // 商户构建请求参数
         String jsonStr = PayUtil.buildRequestJson(param);
+        System.out.println("request data: " + jsonStr);
         String resText = HttpsUtil.post(Config.PAY_MPOS_TRANSFER, jsonStr, Config.CHARSET);
         System.out.println("-----resText: " + resText);
         // 验签后取得支付数据
@@ -212,14 +216,14 @@ public class Mpos {
     public void checkin() {
         SortedMap<String, String> param = new TreeMap();
         param.put("service", Config.PAY_MPOS_CHECKIN);
-        param.put("orderId", UUID.randomUUID().toString().replaceAll("-", ""));
-        param.put("mobile", "");
-        param.put("deviceId", "");
-        param.put("sn", "");
-        param.put("name", "");
-        param.put("withdrawType", ""); // 选填
+        param.put("mobile", "15280533638");
+        param.put("deviceId", "12321");
+        param.put("sn", "1234567");
+        param.put("name", "test");
+        param.put("withdrawType", "1"); // 选填
         // 商户构建请求参数
         String jsonStr = PayUtil.buildRequestJson(param);
+        System.out.println("request data: " + jsonStr);
         String resText = HttpsUtil.post(Config.MPOS_CHECKIN_URL, jsonStr, Config.CHARSET);
         System.out.println("-----resText: " + resText);
         // 验签后取得支付数据
@@ -253,12 +257,13 @@ public class Mpos {
     public void binding() {
         SortedMap<String, String> param = new TreeMap();
         param.put("service", Config.PAY_MPOS_BINDING);
-        param.put("mobile", "");
-        param.put("deviceId", "");
-        param.put("sn", "");
-        param.put("name", ""); // 选填
+        param.put("mobile", "15280533638");
+        param.put("deviceId", "12321");
+        param.put("sn", "1234567");
+        param.put("name", "test"); // 选填
         // 商户构建请求参数
         String jsonStr = PayUtil.buildRequestJson(param);
+        System.out.println("request data: " + jsonStr);
         String resText = HttpsUtil.post(Config.MPOS_CHECKIN_URL, jsonStr, Config.CHARSET);
         System.out.println("-----resText: " + resText);
         // 验签后取得支付数据
