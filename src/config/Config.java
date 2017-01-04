@@ -14,6 +14,11 @@ public class Config {
      * 测试专用mch_id
      */
     public static final String MCH_ID = "88793741592119799888";
+    /**
+     * 测试专用商户号对应的手机号
+     */
+    public static final String MOBILE = "15280533697";
+
 
     /**
      * 测试专用商户公私钥

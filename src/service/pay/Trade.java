@@ -59,7 +59,7 @@ public class Trade {
         param.put("service", Config.TRADE_QUERY_PAGE);
         // mch_id与mobile不能同时为空，优先根据mch_id查询
         param.put("mch_id", Config.MCH_ID); // 商户号
-        param.put("mobile", "15280533697"); // 商户手机号
+        param.put("mobile", Config.MOBILE); // 商户手机号
         // 条件查询参数 非必填
         param.put("trade_state", "SUCCESS"); // 订单状态 参考在线文档中的订单状态值
         // 时间段[)前开后闭
