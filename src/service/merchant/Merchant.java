@@ -1,6 +1,7 @@
 package service.merchant;
 
 import config.Config;
+import org.junit.Test;
 import util.HttpsUtil;
 import util.ImageUtil;
 import util.PayUtil;
@@ -10,18 +11,23 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 /**
- * 付啦 商户进件 接口测试
+ * 付啦 商户操作
  * Created by wuming on 16/10/29.
  */
-public class MerchantEnter {
+public class Merchant {
 
-    public static void main(String[] args) throws Exception {
+    /**
+     * 商户信息进件接口
+     * @throws Exception
+     */
+    @Test
+    public void enter() throws Exception {
         SortedMap<String, String> param = new TreeMap();
         param.put("service", Config.PAY_MERCHANT_ENTER);
         param.put("type", Config.MERCHANT_ENTER_TYPE_BASE_ADD);
 //        param.put("type", Config.MERCHANT_ENTER_TYPE_BASE_UPDATE);
 //        param.put("type", Config.MERCHANT_ENTER_TYPE_IMAGE_UPDATE);
-        // TODO wuming 16/12/6 下午2:54 增加支持对公帐户
+        // 增加支持对公帐户
         param.put("is_company", "1"); // "1" 对公帐户 "0" 对私帐户
 
         // 如果是更新、或者进件照片信息需要传merchant_no,
@@ -77,8 +83,33 @@ public class MerchantEnter {
             System.out.println("<<<<res map: " + result);
             if (PayUtil.verifyFulaParam(result)) {
                 System.out.println("<<<<verify success-----------------");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-            } else {
+
+    /**
+     * 根据 手机号 查询商户号及商户状态
+     */
+    @Test
+    public void query(){
+        SortedMap<String, String> param = new TreeMap();
+        param.put("service", Config.PAY_MERCHANT_QUERY);
+        param.put("mobile", "15280173582"); // 商户的手机号，查询该手机号对应的商户号
+        // 商户构建请求参数
+        System.out.println(">>>>post sign map: " + param);
+        String xmlStr = PayUtil.buildRequestXml(param);
+        System.out.println(">>>>post xmlStr: " + xmlStr);
+        String resText = HttpsUtil.post(Config.PAY_MERCHANT_QUERY_URL, xmlStr, Config.CHARSET);
+        System.out.println("<<<<resText: " + resText);
+        // 验签后取得支付数据
+        try {
+            SortedMap<String, String> result = XmlUtil.doXMLParse(resText);
+            System.out.println("<<<<res map: " + result);
+            if (PayUtil.verifyFulaParam(result)) {
+                System.out.println("<<<<verify success-----------------");
 
             }
         } catch (Exception e) {
