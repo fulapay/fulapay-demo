@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xml>
     <charset>UTF-8</charset>
-    <data_list>
-        [{"fee_type":"CNY","total_fee":"2","trade_state":"SUCCESS","description":"","create_time":"20161230153246","pay_time":"20161230153316"},
-        {"fee_type":"CNY","total_fee":"2","trade_state":"SUCCESS","description":"","create_time":"20161230151417","pay_time":"20161230151458"}]
-    </data_list>
-    <mch_id>88793741592119799888</mch_id>
-    <nonce_str>h7PUzBPn5WCJBfRiuQeMlsGiW7LsfOM8</nonce_str>
-    <page_index>1</page_index>
-    <page_size>2</page_size>
+    <mch_active>MERCHANT_ACTIVE</mch_active>
+    <mch_id>88795891822101667840</mch_id>
+    <mch_status>MERCHANT_STATUS_UNCHECK</mch_status>
+    <nonce_str>5e0kDO1oY8nqTe72zczlF4qL5AuOLHRv</nonce_str>
     <res_code>0000</res_code>
     <res_msg>请求成功:请求成功</res_msg>
     <result_code>S</result_code>
-    <service>trade.query.page</service>
+    <service>pay.merchant.query</service>
     <sign_type>RSA</sign_type>
-    <total>6999</total>
-    <trade_state>SUCCESS</trade_state>
     <version>1.0</version>
     <sign>
-        09Wsx3037ujwSd3JDTQOsBEvo3ucVv5HJQgNwtL805Y+djx96NaGBvTlf2tYmGnlNWG1l4j/Q79aMSzOl8+FSu7nFO9+fAcZoXhmYWNru2uJ2OYyZvl2PyV6TOMtyOYZiUctaz2ETHPcU9ahddMvE2JGgla8FqJcvqy29dhro/k=
+        ehTMKAu2CYJlFHk9JeSCAdjT7HWL5PHINtfAF1sj9PBennAicbLApjRha4aAnywqshSw8Iw3UfleKxNzek17oYKH5Rl5NbrdK0jQOTuiH4O0JQCtkm2rqmeM5kmcgCmUrjokK2jo+35Cxask5U64EAkPRJUTYtrRhF5TmjrIm2U=
     </sign>
 </xml>
