@@ -21,9 +21,13 @@ public class Notify extends HttpServlet{
         try {
             SortedMap<String, String> param = PayUtil.readFulaNotify(req);
             if(PayUtil.verifyFulaParam(param)){
-                // 根据修改业务逻辑 具体参数参见API文档
                 System.out.println(param);
+                // 根据修改业务逻辑 具体参数参见API文档
+                // TODO wuming 17/1/17 上午11:57
+                // ...
                 res.getWriter().print("success");
+                res.getWriter().flush();
+                res.getWriter().close();
             }
         } catch (Exception e) {
             e.printStackTrace();
