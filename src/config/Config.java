@@ -61,6 +61,7 @@ public class Config {
     // 商户进件接口请求地址
     public static final String PAY_MERCHANT_ENTER_URL = "https://sandapi.fulapay.com/merchant/enter";
     public static final String PAY_MERCHANT_QUERY_URL = "https://sandapi.fulapay.com/merchant/query";
+    public static final String PAY_MERCHANT_WITHDRAW_URL = "https://sandapi.fulapay.com/merchant/withdraw";
     // 用户后台接收付啦订单支付结果异步通知url，由用户自行定义，该接口为付啦系统异步主动通知用户接口，用户无需主动调用
     public static final String NOTIFY_URL = "https://sandapi.fulapay.com/mchPay/notify";
     // 支付宝或支付 JS支付结果同步跳转URL，此链接仅为逻辑跳转，具体支付结果及商户订单状态修改根据notify结果处理
@@ -127,6 +128,7 @@ public class Config {
       */
     public static final String PAY_MERCHANT_ENTER = "pay.merchant.enter";
     public static final String PAY_MERCHANT_QUERY = "pay.merchant.query";
+    public static final String PAY_MERCHANT_WITHDRAW = "pay.merchant.withdraw";
 
     /**
      * SEND_SMS_URL(service参数仅能为以下数据)

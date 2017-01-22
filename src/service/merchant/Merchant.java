@@ -28,7 +28,7 @@ public class Merchant {
 //        param.put("type", Config.MERCHANT_ENTER_TYPE_BASE_UPDATE);
 //        param.put("type", Config.MERCHANT_ENTER_TYPE_IMAGE_UPDATE);
         // 增加支持对公帐户
-        param.put("is_company", "1"); // "1" 对公帐户 "0" 对私帐户
+        param.put("is_company", "0"); // "1" 对公帐户 "0" 对私帐户
 
         // 如果是更新、或者进件照片信息需要传merchant_no,
         if (!Config.MERCHANT_ENTER_TYPE_BASE_ADD.equals(param.get("type"))) {
@@ -52,7 +52,7 @@ public class Merchant {
             }
         } else {
             // enter merchant info
-            param.put("name", "无名Test"); // 请填写真实姓名,要与身份证上一致
+            param.put("name", "无名"); // 请填写真实姓名,要与身份证上一致
             param.put("mobile", "15280173582"); // 商户联系方式,提交认证后不可修改
             // 商户银行信息
             param.put("bank_name", "招商银行"); // 清算银行名称
@@ -89,7 +89,6 @@ public class Merchant {
         }
     }
 
-
     /**
      * 根据 手机号 查询商户号及商户状态
      */
@@ -103,6 +102,33 @@ public class Merchant {
         String xmlStr = PayUtil.buildRequestXml(param);
         System.out.println(">>>>post xmlStr: " + xmlStr);
         String resText = HttpsUtil.post(Config.PAY_MERCHANT_QUERY_URL, xmlStr, Config.CHARSET);
+        System.out.println("<<<<resText: " + resText);
+        // 验签后取得支付数据
+        try {
+            SortedMap<String, String> result = XmlUtil.doXMLParse(resText);
+            System.out.println("<<<<res map: " + result);
+            if (PayUtil.verifyFulaParam(result)) {
+                System.out.println("<<<<verify success-----------------");
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 商户手动提现
+     */
+    @Test
+    public void withdraw(){
+        SortedMap<String, String> param = new TreeMap();
+        param.put("service", Config.PAY_MERCHANT_WITHDRAW);
+        param.put("mch_id", Config.MCH_ID); // 商户的手机号，查询该手机号对应的商户号
+        // 商户构建请求参数
+        System.out.println(">>>>post sign map: " + param);
+        String xmlStr = PayUtil.buildRequestXml(param);
+        System.out.println(">>>>post xmlStr: " + xmlStr);
+        String resText = HttpsUtil.post(Config.PAY_MERCHANT_WITHDRAW_URL, xmlStr, Config.CHARSET);
         System.out.println("<<<<resText: " + resText);
         // 验签后取得支付数据
         try {

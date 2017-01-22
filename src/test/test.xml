@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xml>
+    <app_id>1000015</app_id>
     <charset>UTF-8</charset>
-    <mch_active>MERCHANT_ACTIVE</mch_active>
-    <mch_id>88795891822101667840</mch_id>
-    <mch_status>MERCHANT_STATUS_UNCHECK</mch_status>
-    <nonce_str>5e0kDO1oY8nqTe72zczlF4qL5AuOLHRv</nonce_str>
-    <res_code>0000</res_code>
-    <res_msg>请求成功:请求成功</res_msg>
-    <result_code>S</result_code>
-    <service>pay.merchant.query</service>
+    <mch_id>88793741592119799888</mch_id>
+    <nonce_str>609f92178d9c4d3998c3f1d1ea16eab2</nonce_str>
+    <service>pay.merchant.withdraw</service>
     <sign_type>RSA</sign_type>
-    <version>1.0</version>
     <sign>
-        ehTMKAu2CYJlFHk9JeSCAdjT7HWL5PHINtfAF1sj9PBennAicbLApjRha4aAnywqshSw8Iw3UfleKxNzek17oYKH5Rl5NbrdK0jQOTuiH4O0JQCtkm2rqmeM5kmcgCmUrjokK2jo+35Cxask5U64EAkPRJUTYtrRhF5TmjrIm2U=
+        QMl6qYYQ/5HD/lGa9xIqXMMUDv++liqXBNwjlusvfmRALAdDwSjSc9dZ+NQnc3JynJVkzDiMZIJyRQwJTWnO9wr4e1nS8CTlDKq2HQXJ//1FNU8E0yZ/3dyE/l8RiZOX4x9n2LYXf2OavQX8hA+qSSJ/wpLBeFFnllZ191WY4UI=
     </sign>
 </xml>
