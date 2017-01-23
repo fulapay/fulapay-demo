@@ -52,13 +52,14 @@ public class Merchant {
             }
         } else {
             // enter merchant info
-            param.put("name", "无名"); // 请填写真实姓名,要与身份证上一致
-            param.put("mobile", "15280173582"); // 商户联系方式,提交认证后不可修改
+            param.put("name", "无名"); // 请填写真实姓名,要与身份证上一致(个人帐户时，此值默认为结算银行帐户户名；对公帐户，此值填写公司负责人名字)
+            param.put("mobile", "15280173582"); // 商户联系方式,提交认证后不可修改(对公帐户，此字段填写公司负责人联系方式)
             // 商户银行信息
             param.put("bank_name", "招商银行"); // 清算银行名称
             param.put("bank_account", "6225885866688888"); // 清算银行帐户
             if ("1".equals(param.get("is_company"))) {
-                // 对公帐户需要提供营业执照号和组织机构码
+                // 对公帐户需要提供对公银行帐户户名、营业执照号和组织机构码
+                param.put("bank_account_name", ""); // 对公银行帐户户名
                 param.put("biz_license_no", "11223344"); // 营业执照号
                 param.put("org_code", "55332211"); // 组织机构码
             } else {
