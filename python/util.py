@@ -118,7 +118,7 @@ def dict_to_xml(dict_data):
 def https_xml_data(xml_data, url):
     request = urllib2.Request(url, xml_data)
     request.add_header('charset', 'utf-8')
-    request.add_header('Content-Type', 'application/xml')
+    request.add_header('Content-Type', 'text/html')
     request.add_header("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.122 Safari/537.36")
     response = urllib2.urlopen(request)
     xml_data = response.read()
