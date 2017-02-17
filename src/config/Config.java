@@ -68,6 +68,8 @@ public class Config {
     public static final String RETURN_URL = "https://sandapi.fulapay.com/mchPay/return";
     // 付啦短信发送请求接口
     public static final String SEND_SMS_URL = "https://sandapi.fulapay.com/sms/send";
+    // 付啦统一下单接口请求地址
+    public static final String ACCOUNT_WITHDRAW_URL = "https://sandapi.fulapay.com/account/withdraw";
 
     /**
      * UNIFIED_PAY_URL (service参数仅能为以下数据)

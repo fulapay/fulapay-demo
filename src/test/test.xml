@@ -1,12 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xml>
     <app_id>1000015</app_id>
+    <bank_account_name>
+        spOeAxX5mEEdxspinVB/6GqedtlpNLZHOqw5cR5pn8zBF4YVMLTcH58958hOJhIjh/4vNfjHlVa8jlj1iCPZnxGbWp37kkIO38rqlhf9P5om1QMqsVPKisNlg1Qm/QPffMo7fLlVDSSCP9ws1qZY82J/UHHOqrr2SxbCP0wCuDE=
+    </bank_account_name>
+    <bank_account_no>
+        Oic8IVybroWpQqJFBPIDokj+mNw9quA/acZSfNhKxlhrmuFsVNW7C2GFjuc2OBFhjgwQxtfkVpqFrYNViGTFfj62p7gBKTB3Asb9E4XdiMpdRnXAEji9kV6noI2XPO5Dn+V/H7Zhkb+6Y/HyRdU/5Xktl3d/XlSSOt48FnssSl4=
+    </bank_account_no>
+    <bank_mobile>15280533697</bank_mobile>
+    <bank_subbranch_no></bank_subbranch_no>
     <charset>UTF-8</charset>
-    <mch_id>88793741592119799888</mch_id>
-    <nonce_str>609f92178d9c4d3998c3f1d1ea16eab2</nonce_str>
-    <service>pay.merchant.withdraw</service>
+    <is_company>0</is_company>
+    <mobile>15280533697</mobile>
+    <nonce_str>2689a159818b49d9b385b4ac7b4c0afc</nonce_str>
+    <out_trade_no>d4cd24762c91442ea95e0cabd083bdd0</out_trade_no>
+    <remark>支付测试</remark>
+    <service>pay.account.withdraw</service>
     <sign_type>RSA</sign_type>
+    <total_fee>600</total_fee>
     <sign>
-        QMl6qYYQ/5HD/lGa9xIqXMMUDv++liqXBNwjlusvfmRALAdDwSjSc9dZ+NQnc3JynJVkzDiMZIJyRQwJTWnO9wr4e1nS8CTlDKq2HQXJ//1FNU8E0yZ/3dyE/l8RiZOX4x9n2LYXf2OavQX8hA+qSSJ/wpLBeFFnllZ191WY4UI=
+        TL1ud9JiAGy24fYF30GC5QlM619thOAUvLHt3h/5Hg/unDqIm1m0tK3M5SdrUyOZpU2Qk4MQQ2VCp9jqADaDtadGnDdGXWY0HNzGeWe4/1lAFjlAPcWU5SOFEifH1CI0h7VED8I+lh9KTRjgZU355UUJwVsmhOXzfTbd7l9mVJU=
     </sign>
 </xml>
+
+        <!--<?xml version="1.0" encoding="UTF-8"?><xml>-->
+        <!--<charset>UTF-8</charset>-->
+        <!--<nonce_str>f5pTYmxwOfSDjKzPVY73VSzUTc2azoMb</nonce_str>-->
+        <!--<res_code>0000</res_code>-->
+        <!--<res_msg>请求成功:请求成功</res_msg>-->
+        <!--<result_code>S</result_code>-->
+        <!--<service>pay.account.withdraw</service>-->
+        <!--<sign_type>RSA</sign_type>-->
+        <!--<version>1.0</version>-->
+        <!--<sign>-->
+        <!--DkfkCvop+reDx4GFpMi5+2x/9Jiwu1uPzldKg/lmPfyuXoXTKBSFWNvsjDdFvZowJsPbNHpgq4rNVM53GcGxr/MjcYpcKbFcX4EkVa5xqYt+sW3PyAWTI+c8JLSBMY25wjXaEqMd4MsOo8F+h8T8OxMItSwsxa+9f75vJ/fuZ8Q=-->
+        <!--</sign>-->
+        <!--</xml>-->
