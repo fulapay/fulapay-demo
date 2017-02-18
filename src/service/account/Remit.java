@@ -43,6 +43,7 @@ public class Remit {
                 String resultCode = result.get("result_code");
                 if("0000".equals(resCode) && "S".equals(resultCode)){
                     System.out.println("提现申请成功！");
+                    responseMap.put("success", true);
                     // 具体到帐通知由notify信息通知
                 }
                 System.out.println("----操作结果：" + result);
