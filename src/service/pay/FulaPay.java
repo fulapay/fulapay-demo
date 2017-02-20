@@ -20,7 +20,7 @@ import java.util.*;
  * Created by wuming on 16/10/20.
  */
 @WebServlet("/fulaPay")
-public class FulaPay extends HttpServlet{
+public class FulaPay extends HttpServlet {
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.sendRedirect("/index.jsp");
@@ -28,6 +28,11 @@ public class FulaPay extends HttpServlet{
 
     /**
      * 统一下单接口
+     * 接口 service 参数的值仅能为以下4个，每个参数对应一种支付方式
+     * pay.alipay.qrcode 支付宝二维码支付
+     * pay.wxpay.qrcode 微信二维码支付
+     * pay.alipay.scan 支付宝扫码支付
+     * pay.wxpay.scan 微信扫码支付
      * @param req
      * @param resp
      * @throws ServletException
@@ -40,7 +45,7 @@ public class FulaPay extends HttpServlet{
         String service = req.getParameter("service");
         param.put("service", service);
         // 如果 service为fula.xxx.scan 扫码支付需要authCode 参数（支付宝或者微信扫码支付的上显示的code）
-        if(Config.PAY_WXPAY_SCAN.equals(service) || Config.PAY_ALIPAY_SCAN.equals(service)){
+        if (Config.PAY_WXPAY_SCAN.equals(service) || Config.PAY_ALIPAY_SCAN.equals(service)) {
             param.put("auth_code", req.getParameter("authCode"));
         }
         param.put("mch_id", Config.MCH_ID);
@@ -63,14 +68,14 @@ public class FulaPay extends HttpServlet{
                 String resMsg = result.get("res_msg");
                 String resultCode = result.get("result_code");
                 if ("0000".equals(resCode) && "S".equals(resultCode)) {
-                    if(Config.PAY_WXPAY_QRCODE.equals(service) || Config.PAY_ALIPAY_QRCODE.equals(service)){
+                    if (Config.PAY_WXPAY_QRCODE.equals(service) || Config.PAY_ALIPAY_QRCODE.equals(service)) {
                         // TODO payInfo 及付啦支付返回的二维码数据,商户只需要利用这个数据生成二维码后即可使用支付宝扫码支付
                         // 二维码支付
                         String payInfo = result.get("pay_info");
                         System.out.println("支付二维码数据" + payInfo);
                         responseMap.put("payInfo", payInfo);
                         responseMap.put("success", true);
-                    } else if(Config.PAY_WXPAY_SCAN.equals(service) || Config.PAY_ALIPAY_SCAN.equals(service)) {
+                    } else if (Config.PAY_WXPAY_SCAN.equals(service) || Config.PAY_ALIPAY_SCAN.equals(service)) {
                         // 扫码支付 同步返回成功
                         responseMap.put("success", true);
                     }
