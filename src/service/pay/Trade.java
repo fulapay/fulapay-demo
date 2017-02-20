@@ -18,14 +18,17 @@ public class Trade {
     /**
      * 订单查询接口
      * 根据订单号查询订单交易状态
+     * transaction_id 与 out_trade_no 不能同时为空
+     *  1.如果仅有其一，则以此值查询订单返回
+     *  2.如果两个值都不空，则以transaction_id优先查询订单详情，并验证订单数据是否与所传参数out_trade_no值一致
      */
     @Test
     public void query() {
         SortedMap<String, String> param = new TreeMap();
         param.put("service", Config.TRADE_QUERY);
         param.put("mch_id", Config.MCH_ID);
-        param.put("out_trade_no", "a52fe90f220c4f60a4f3f9a1e7ded936");
-        param.put("transaction_id", "201612011110471001639522197ce");
+        param.put("out_trade_no", "a52fe90f220c4f60a4f3f9a1e7ded936"); // 商户平台订单号
+        param.put("transaction_id", "201612011110471001639522197ce"); // 付啦平台订单号
 
         // 商户构建请求参数
         System.out.println(">>>>post sign map: " + param);
