@@ -13,12 +13,12 @@ import java.util.*;
  * Created by wuming on 2017/2/17.
  * api手动代付
  */
-public class Remit {
+public class Withdraw {
 
     @Test
-    public void remitTest() throws Exception {
+    public void withdraw() throws Exception {
         SortedMap<String, String> param = new TreeMap();
-        param.put("service", "pay.account.withdraw");
+        param.put("service", Config.PAY_ACCOUNT_WITHDRAW); // 固定值
         param.put("out_trade_no", UUID.randomUUID().toString().replaceAll("-", ""));
         param.put("total_fee", "600"); // 单位：分
         param.put("mobile", "15280533697");
@@ -27,7 +27,7 @@ public class Remit {
         param.put("bank_mobile", "15280533697");
         param.put("is_company", "0"); // 0个人帐户 1对公帐户
         param.put("bank_subbranch_no", ""); // 联行号 选填
-        param.put("remark", "支付测试"); // 备注 选填
+        param.put("remark", "提现测试"); // 备注 选填
         // 商户构建请求参数
         String xmlStr = PayUtil.buildRequestXml(param);
         System.out.println("----request data: " + xmlStr);

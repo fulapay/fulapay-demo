@@ -68,7 +68,7 @@ public class Config {
     public static final String RETURN_URL = "https://sandapi.fulapay.com/mchPay/return";
     // 付啦短信发送请求接口
     public static final String SEND_SMS_URL = "https://sandapi.fulapay.com/sms/send";
-    // 付啦统一下单接口请求地址
+    // 帐户提现接口请求网关
     public static final String ACCOUNT_WITHDRAW_URL = "https://sandapi.fulapay.com/account/withdraw";
 
     /**
@@ -129,8 +129,24 @@ public class Config {
      * 商户进件接口service 常量声明
       */
     public static final String PAY_MERCHANT_ENTER = "pay.merchant.enter";
+
+    /**
+     * PAY_MERCHANT_QUERY_URL
+     * 根据手机号查询商户号信息接口常量声明
+     */
     public static final String PAY_MERCHANT_QUERY = "pay.merchant.query";
+
+    /**
+     * PAY_MERCHANT_WITHDRAW_URL
+     * 商户提现接口网关常量声明
+     */
     public static final String PAY_MERCHANT_WITHDRAW = "pay.merchant.withdraw";
+
+    /**
+     * ACCOUNT_WITHDRAW_URL
+     * 帐户提现接口service 常量声明
+     */
+    public static final String PAY_ACCOUNT_WITHDRAW = "pay.account.withdraw";
 
     /**
      * SEND_SMS_URL(service参数仅能为以下数据)
