@@ -70,6 +70,7 @@ public class Config {
     public static final String SEND_SMS_URL = "https://sandapi.fulapay.com/sms/send";
     // 帐户提现接口请求网关
     public static final String ACCOUNT_WITHDRAW_URL = "https://sandapi.fulapay.com/account/withdraw";
+    public static final String ACCOUNT_WITHDRAW_QUERY_URL = "https://sandapi.fulapay.com/account/withdraw/query";
 
     /**
      * UNIFIED_PAY_URL (service参数仅能为以下数据)
@@ -147,6 +148,7 @@ public class Config {
      * 帐户提现接口service 常量声明
      */
     public static final String PAY_ACCOUNT_WITHDRAW = "pay.account.withdraw";
+    public static final String PAY_ACCOUNT_WITHDRAW_QUERY = "pay.account.withdraw.query";
 
     /**
      * SEND_SMS_URL(service参数仅能为以下数据)
