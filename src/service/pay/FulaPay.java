@@ -52,7 +52,7 @@ public class FulaPay extends HttpServlet {
         param.put("out_trade_no", UUID.randomUUID().toString().replaceAll("-", ""));
         param.put("total_fee", req.getParameter("totalFee"));
         param.put("body", "支付测试");
-        param.put("mch_create_ip", "127.0.0.1");
+        param.put("mch_create_ip", "112.224.33.55"); // 真实填写服务器端ip
         param.put("notify_url", Config.NOTIFY_URL);
         // 商户构建请求参数
         String xmlStr = PayUtil.buildRequestXml(param);
