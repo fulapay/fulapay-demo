@@ -17,6 +17,7 @@
     <select name="service">
         <option value="pay.wxpay.js">微信公众号(js支付)</option>
     </select>
+    <input type="hidden" name="return_url" value='http://wx.efujr.com/zhifu/bpzf/gopay.php?parmjson={"do":"pb","id":"664856","money":"1000","rid":"79"}'>
     <br><br>
 
     支付金额
@@ -35,7 +36,7 @@
 <script type="text/javascript">
     function checkForm() {
         var totalFee = document.getElementById('totalFee').value;
-        if(!/^\d*[1-9]\d*$/.test(totalFee)){
+        if (!/^\d*[1-9]\d*$/.test(totalFee)) {
             alert('请输入正整数金额！');
             return false;
         }

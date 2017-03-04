@@ -36,6 +36,9 @@ public class JsPay extends HttpServlet{
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         SortedMap<String, String> param = new TreeMap();
         String service = req.getParameter("service");
+        String return_url = req.getParameter("return_url");
+        String pay_url = "http://localhost:8080/pay/jspay";
+        //pay_url = "http://sandweixin.fulapay.com/wxpay/jspay";
         param.put("service", service);
         // TODO js支付仅能线上测试，以下两个参数要填写线上的
         param.put("app_id", Config.APP_ID); // 线上环境付啦开放平台申请的appId
