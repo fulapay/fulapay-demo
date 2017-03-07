@@ -17,8 +17,7 @@
     <select name="service">
         <option value="pay.wxpay.js">微信公众号(js支付)</option>
     </select>
-    <input type="hidden" name="return_url" value='http://wx.efujr.com/zhifu/bpzf/gopay.php?parmjson={"do":"pb","id":"664856","money":"1000","rid":"79"}'>
-    <br><br>
+    <br>
 
     支付金额
     <input type="text" id="totalFee" name="totalFee" value="">

@@ -65,7 +65,9 @@ public class Config {
     // 用户后台接收付啦订单支付结果异步通知url，由用户自行定义，该接口为付啦系统异步主动通知用户接口，用户无需主动调用
     public static final String NOTIFY_URL = "https://sandapi.fulapay.com/mchPay/notify";
     // 支付宝或支付 JS支付结果同步跳转URL，此链接仅为逻辑跳转，具体支付结果及商户订单状态修改根据notify结果处理
-    public static final String RETURN_URL = "https://sandapi.fulapay.com/mchPay/return";
+    public static final String RETURN_URL = "https://sandapi.fulapay.com/fulapay/return";
+    public static final String CANCEL_URL = "https://sandapi.fulapay.com/fulapay/cancel";
+    public static final String ERROR_URL = "https://sandapi.fulapay.com/fulapay/error";
     // 付啦短信发送请求接口
     public static final String SEND_SMS_URL = "https://sandapi.fulapay.com/sms/send";
     // 帐户提现接口请求网关
