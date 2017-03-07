@@ -10,6 +10,7 @@ import java.util.TreeMap;
 import java.util.UUID;
 
 /**
+ * 银联支付接口
  * Created by 87119 on 2017/3/7.
  */
 public class Unionpay {
@@ -18,6 +19,9 @@ public class Unionpay {
         pay();
     }
 
+    /**
+     * 银联预支付接口
+     */
     public static void pre() {
         SortedMap<String, String> param = new TreeMap();
         param.put("mch_create_ip", "112.224.33.55");
@@ -52,6 +56,9 @@ public class Unionpay {
         }
     }
 
+    /**
+     * 银联支付验证接口
+     */
     public static void pay() {
         SortedMap<String, String> param = new TreeMap();
         param.put("mch_create_ip", "112.224.33.55");
