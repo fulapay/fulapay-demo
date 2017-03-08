@@ -17,6 +17,7 @@ public class flow {
         param.put("service", "flow.buy");
         param.put("mobile", "18658161306");
         param.put("flow_id", "500000020");
+        param.put("notify_url", "http://localhost:8080/flow/notify_url");
         System.out.println(">>>>post sign map: " + param);
         String xmlStr = PayUtil.buildRequestXml(param);
         System.out.println(">>>>post xmlStr: " + xmlStr);
