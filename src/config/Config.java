@@ -68,8 +68,14 @@ public class Config {
     public static final String RETURN_URL = "https://sandapi.fulapay.com/fulapay/return";
     public static final String CANCEL_URL = "https://sandapi.fulapay.com/fulapay/cancel";
     public static final String ERROR_URL = "https://sandapi.fulapay.com/fulapay/error";
+    //银联预支付接口URL及支付验证接口
+    public static final String UNIONPAY_PRE_URL = "https://sandapi.fulapay.com/pay/unionpay/pre";
+    public static final String UNIONPAY_PAY_URL = "https://sandapi.fulapay.com/pay/unionpay";
+
     // 付啦短信发送请求接口
     public static final String SEND_SMS_URL = "https://sandapi.fulapay.com/sms/send";
+    // 付啦流量充值接口
+    public static final String FLOW_BUY_URL = "https://sandapi.fulapay.com/flow/buy";
     // 帐户提现接口请求网关
     public static final String ACCOUNT_WITHDRAW_URL = "https://sandapi.fulapay.com/account/withdraw";
     public static final String ACCOUNT_WITHDRAW_QUERY_URL = "https://sandapi.fulapay.com/account/withdraw/query";
@@ -98,6 +104,10 @@ public class Config {
     public static final String PAY_ALIPAY_QRCODE = "pay.alipay.qrcode";
     public static final String PAY_ALIPAY_SCAN = "pay.alipay.scan";
 
+    //银联支付
+    public static final String PAY_UNIONPAY_PRE = "pay.unionpay.pre";
+    public static final String PAY_UNIONPAY_PAY = "pay.unionpay";
+
     /**
      * 大额转帐service
      */
@@ -124,13 +134,13 @@ public class Config {
     /**
      * TODO 开发中
      * 订单退款
-      */
+     */
     public static final String PAY_TRADE_REFUND = "pay.trade.refund";
 
     /**
      * PAY_MERCHANT_ENTER_URL (以下service仅限调用商户进件接口使用)
      * 商户进件接口service 常量声明
-      */
+     */
     public static final String PAY_MERCHANT_ENTER = "pay.merchant.enter";
 
     /**
@@ -157,7 +167,10 @@ public class Config {
      * 付啦短信发送接口service常量声明
      */
     public static final String SMS_SEND = "sms.send";
-
+    /**
+     * 流量充值接口service常量声明
+     */
+    public static final String FLOW_BUY = "flow.buy";
     /**
      * 商户进件接口type 常量声明
      * "0" 进件基本资料

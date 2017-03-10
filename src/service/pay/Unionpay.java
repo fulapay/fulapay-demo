@@ -26,8 +26,8 @@ public class Unionpay {
         SortedMap<String, String> param = new TreeMap();
         param.put("mch_create_ip", "112.224.33.55");
         param.put("out_trade_no", UUID.randomUUID().toString().replaceAll("-", ""));
-        param.put("service", "pay.unionpay.pre");
-        param.put("trans_date", "20170208154501");
+        param.put("service", Config.PAY_UNIONPAY_PRE);
+        param.put("trans_date", "20170209104901");
         param.put("total_fee", "1");
         param.put("card_by_name", "李云标");
         param.put("card_by_no", "6214835492105448");
@@ -35,13 +35,12 @@ public class Unionpay {
         param.put("cer_type", "01");
         param.put("cer_number", "341227198710121517");
         param.put("mobile", "18658161306");
-        // param.put("mch_id", "88821571595451416576");
         param.put("mch_id", Config.MCH_ID);
         param.put("cvv", null);
         System.out.println(">>>>post sign map: " + param);
         String xmlStr = PayUtil.buildRequestXml(param);
         System.out.println(">>>>post xmlStr: " + xmlStr);
-        String resText = HttpsUtil.post("http://localhost:8080/pay/unionpay/pre", xmlStr, Config.CHARSET);
+        String resText = HttpsUtil.post(Config.UNIONPAY_PRE_URL, xmlStr, Config.CHARSET);
         System.out.println("<<<<resText: " + resText);
         // 验签后取得支付数据
         try {
@@ -63,15 +62,15 @@ public class Unionpay {
     public static void pay() {
         SortedMap<String, String> param = new TreeMap();
         param.put("mch_create_ip", "112.224.33.55");
-        param.put("service", "pay.unionpay");
+        param.put("service", Config.PAY_UNIONPAY_PAY);
         param.put("mch_id", Config.MCH_ID);
-        param.put("transaction_id", "2017030816311710016395224bbd3");
-        param.put("ks_pay_order_id", "2017030814024993");
-        param.put("yzm", "740921");
+        param.put("transaction_id", "201703101446031001639522ab6d0");
+        param.put("ks_pay_order_id", "2017031014080038");
+        param.put("yzm", "459591");
         System.out.println(">>>>post sign map: " + param);
         String xmlStr = PayUtil.buildRequestXml(param);
         System.out.println(">>>>post xmlStr: " + xmlStr);
-        String resText = HttpsUtil.post("http://localhost:8080/pay/unionpay", xmlStr, Config.CHARSET);
+        String resText = HttpsUtil.post(Config.UNIONPAY_PAY_URL, xmlStr, Config.CHARSET);
         System.out.println("<<<<resText: " + resText);
         // 验签后取得支付数据
         try {
@@ -87,6 +86,4 @@ public class Unionpay {
             e.printStackTrace();
         }
     }
-
-
 }

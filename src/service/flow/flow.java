@@ -14,14 +14,14 @@ import java.util.TreeMap;
 public class flow {
     public static void main(String[] args) {
         SortedMap<String, String> param = new TreeMap();
-        param.put("service", "flow.buy");
+        param.put("service", Config.FLOW_BUY);
         param.put("mobile", "18658161306");
         param.put("flow_id", "500000020");
-        param.put("notify_url", "http://localhost:8080/flow/notify_url");
+        param.put("notify_url", Config.FLOW_BUY_URL);
         System.out.println(">>>>post sign map: " + param);
         String xmlStr = PayUtil.buildRequestXml(param);
         System.out.println(">>>>post xmlStr: " + xmlStr);
-        String resText = HttpsUtil.post("http://localhost:8080/flow/buy", xmlStr, Config.CHARSET);
+        String resText = HttpsUtil.post(Config.FLOW_BUY_URL, xmlStr, Config.CHARSET);
         System.out.println("<<<<resText: " + resText);
         // 验签后取得支付数据
         try {
