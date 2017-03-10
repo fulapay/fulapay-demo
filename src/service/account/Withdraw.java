@@ -19,11 +19,11 @@ public class Withdraw {
     public void withdraw() throws Exception {
         SortedMap<String, String> param = new TreeMap();
         param.put("service", Config.PAY_ACCOUNT_WITHDRAW); // 固定值
-        param.put("out_trade_no", UUID.randomUUID().toString().replaceAll("-", ""));
+        param.put("out_trade_no", UUID.randomUUID().toString().replaceAll("-", "")); // 商户提现订单号 保证唯一，不可重复
         param.put("total_fee", "600"); // 单位：分
         param.put("mobile", "15280533697");
-        param.put("bank_account_no", RSA.encrypt("6225685866687388", Config.PUBLIC_KEY, Config.CHARSET));
-        param.put("bank_account_name", RSA.encrypt("无名", Config.PUBLIC_KEY, Config.CHARSET));
+        param.put("bank_account_no", RSA.encrypt("6225685866687388", Config.PUBLIC_KEY, Config.CHARSET)); // 使用付啦公钥对帐号信息加密
+        param.put("bank_account_name", RSA.encrypt("无名", Config.PUBLIC_KEY, Config.CHARSET)); // 使用付啦公钥对户名信息加密
         param.put("bank_mobile", "15280533697");
         param.put("is_company", "0"); // 0个人帐户 1对公帐户
         param.put("bank_subbranch_no", ""); // 联行号 选填
