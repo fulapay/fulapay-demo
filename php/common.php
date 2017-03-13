@@ -46,6 +46,8 @@ function http($url, $params, $method = 'GET', $httpHeader = '', $ssl = false) {
     }
 }
 
+// php RSA官方签名demo http://www.php.net/manual/en/function.openssl-sign.php
+// php RSA 签名、加密 http://www.cnblogs.com/bwteacher/p/5757361.html
 function makeSign($string, $priKey) {
     $res = openssl_pkey_get_private($priKey);
     $signature = '';
