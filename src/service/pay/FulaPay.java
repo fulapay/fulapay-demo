@@ -56,6 +56,7 @@ public class FulaPay extends HttpServlet {
         param.put("notify_url", Config.NOTIFY_URL);
         // 商户构建请求参数
         String xmlStr = PayUtil.buildRequestXml(param);
+        System.out.println("-----xmlStr: " + xmlStr);
         String resText = HttpsUtil.post(Config.UNIFIED_ORDER_URL, xmlStr, Config.CHARSET);
         System.out.println("-----resText: " + resText);
         // 验签后取得支付数据

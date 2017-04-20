@@ -27,8 +27,8 @@ public class Trade {
         SortedMap<String, String> param = new TreeMap();
         param.put("service", Config.TRADE_QUERY);
         param.put("mch_id", Config.MCH_ID);
-        param.put("out_trade_no", "a52fe90f220c4f60a4f3f9a1e7ded936"); // 商户平台订单号
-        param.put("transaction_id", "201612011110471001639522197ce"); // 付啦平台订单号
+       // param.put("out_trade_no", "a52fe90f220c4f60a4f3f9a1e7ded936"); // 商户平台订单号
+        param.put("transaction_id", "20170323143710100163952266e86"); // 付啦平台订单号
 
         // 商户构建请求参数
         System.out.println(">>>>post sign map: " + param);

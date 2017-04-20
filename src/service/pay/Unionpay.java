@@ -16,7 +16,7 @@ import java.util.UUID;
 public class Unionpay {
 
     public static void main(String[] args) {
-        pay();
+        pre();
     }
 
     /**
@@ -27,7 +27,7 @@ public class Unionpay {
         param.put("mch_create_ip", "112.224.33.55");
         param.put("out_trade_no", UUID.randomUUID().toString().replaceAll("-", ""));
         param.put("service", Config.PAY_UNIONPAY_PRE);
-        param.put("trans_date", "20170209104901");
+        param.put("trans_date", "20170406115201");
         param.put("total_fee", "1");
         param.put("card_by_name", "李云标");
         param.put("card_by_no", "6214835492105448");
@@ -64,9 +64,9 @@ public class Unionpay {
         param.put("mch_create_ip", "112.224.33.55");
         param.put("service", Config.PAY_UNIONPAY_PAY);
         param.put("mch_id", Config.MCH_ID);
-        param.put("transaction_id", "201703101446031001639522ab6d0");
-        param.put("ks_pay_order_id", "2017031014080038");
-        param.put("yzm", "459591");
+        param.put("order_id", "2017040814001410016395179ae75");
+        param.put("ks_pay_order_id", "2017040814611108");
+        param.put("yzm", "531461");
         System.out.println(">>>>post sign map: " + param);
         String xmlStr = PayUtil.buildRequestXml(param);
         System.out.println(">>>>post xmlStr: " + xmlStr);
