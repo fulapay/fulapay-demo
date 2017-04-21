@@ -76,10 +76,15 @@ public class Config {
     public static final String SEND_SMS_URL = "https://sandapi.fulapay.com/sms/send";
     // 付啦流量充值接口
     public static final String FLOW_BUY_URL = "https://sandapi.fulapay.com/flow/buy";
+    public static final String FLOW_MEAL_URL = "https://sandapi.fulapay.com/flow/meal";
+    public static final String FLOW_ORDER_URL = "https://sandapi.fulapay.com/flow/order";
+
     // 帐户提现接口请求网关
     public static final String ACCOUNT_WITHDRAW_URL = "https://sandapi.fulapay.com/account/withdraw";
     public static final String ACCOUNT_WITHDRAW_QUERY_URL = "https://sandapi.fulapay.com/account/withdraw/query";
-
+    //信息认证接口请求网关
+    public static final String AUTH_ID_CARD_URL = "https://sandapi.fulapay.com/open/auth/idCard";
+    public static final String AUTH_BANK_URL = "https://sandapi.fulapay.com/open/auth/bankCard";
     /**
      * UNIFIED_PAY_URL (service参数仅能为以下数据)
      * 付啦统一支付service 常量声明
@@ -107,6 +112,10 @@ public class Config {
     //银联支付
     public static final String PAY_UNIONPAY_PRE = "pay.unionpay.pre";
     public static final String PAY_UNIONPAY_PAY = "pay.unionpay";
+
+    //身份证信息认证
+    public static final String AUTH_BANK_SERVICE = "open.bankcard.auth";
+    public static final String AUTH_ID_CARD_SERVICE = "open.idcard.auth";
 
     /**
      * 大额转帐service
@@ -171,6 +180,8 @@ public class Config {
      * 流量充值接口service常量声明
      */
     public static final String FLOW_BUY = "flow.buy";
+    public static final String FLOW_MEAL = "flow.meal";
+    public static final String FLOW_ORDER = "flow.order";
     /**
      * 商户进件接口type 常量声明
      * "0" 进件基本资料
