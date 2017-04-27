@@ -19,8 +19,10 @@
     <select name="service" id="service" onchange="changeService(this.value);">
         <option value="pay.alipay.qrcode">支付宝二维码支付</option>
         <option value="pay.wxpay.qrcode">微信二维码支付</option>
+        <option value="pay.qqpay.qrcode">QQ二维码支付</option>
         <option value="pay.alipay.scan">支付宝扫码支付</option>
         <option value="pay.wxpay.scan">微信扫码支付</option>
+        <option value="pay.qqpay.scan">QQ扫码支付</option>
     </select>
     <br><br>
 
@@ -47,7 +49,7 @@
 <script>
     var authCodeDiv = document.getElementById('authCodeDiv');
     function changeService(service) {
-        if(service == 'pay.alipay.scan' || service == 'pay.wxpay.scan'){
+        if(service == 'pay.alipay.scan' || service == 'pay.wxpay.scan'|| service == 'pay.qqpay.scan'){
             authCodeDiv.style.display = 'block';
         } else {
             authCodeDiv.style.display = 'none';
@@ -61,7 +63,7 @@
         $.post('/fulaPay', $('#form').serialize(), function (data) {
             if (data.success) {
                 var service = $("#service").val();
-                if(service == 'pay.alipay.qrcode' || service == 'pay.wxpay.qrcode'){
+                if(service == 'pay.alipay.qrcode' || service == 'pay.wxpay.qrcode'|| service == 'pay.qqpay.qrcode'){
                     $('#qrcode').html("");
                     $('#qrcode').qrcode(data.payInfo);
                 } else{

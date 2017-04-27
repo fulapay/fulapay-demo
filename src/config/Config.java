@@ -106,6 +106,8 @@ public class Config {
     // 统一下单
     public static final String PAY_WXPAY_QRCODE = "pay.wxpay.qrcode";
     public static final String PAY_WXPAY_SCAN = "pay.wxpay.scan";
+    public static final String PAY_QQPAY_QRCODE = "pay.qqpay.qrcode";
+    public static final String PAY_QQPAY_SCAN = "pay.qqpay.scan";
     public static final String PAY_ALIPAY_QRCODE = "pay.alipay.qrcode";
     public static final String PAY_ALIPAY_SCAN = "pay.alipay.scan";
 

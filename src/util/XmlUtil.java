@@ -23,6 +23,7 @@ public class XmlUtil {
         if (null == xmlStr || "".equals(xmlStr)) {
             return map;
         }
+        xmlStr=xmlStr.replace("&","&amp;");
         InputStream in = String2Inputstream(xmlStr);
         SAXBuilder builder = new SAXBuilder();
         Document doc = builder.build(in);
