@@ -29,12 +29,12 @@ public class Unionpay {
         param.put("service", Config.PAY_UNIONPAY_PRE);
         param.put("trans_date", "20170426100101");
         param.put("total_fee", "1");
-        param.put("card_by_name", "李云");
-        param.put("card_by_no", "6214835490000448");
+        param.put("card_by_name", "马云");
+        param.put("card_by_no", "621481273457448");
         param.put("card_type", "01");
         param.put("cer_type", "01");
-        param.put("cer_number", "341110022333661517");
-        param.put("mobile", "18658112206");
+        param.put("cer_number", "34178945612333317");
+        param.put("mobile", "18658161306");
         param.put("mch_id", Config.MCH_ID);
         param.put("cvv", null);
         System.out.println(">>>>post sign map: " + param);
