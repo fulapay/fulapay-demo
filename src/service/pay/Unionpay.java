@@ -1,6 +1,7 @@
 package service.pay;
 
 import config.Config;
+import org.junit.Test;
 import util.HttpsUtil;
 import util.PayUtil;
 import util.XmlUtil;
@@ -15,14 +16,11 @@ import java.util.UUID;
  */
 public class Unionpay {
 
-    public static void main(String[] args) {
-        pay();
-    }
-
     /**
      * 银联预支付接口
      */
-    public static void pre() {
+    @Test
+    public void pre() {
         SortedMap<String, String> param = new TreeMap();
         param.put("mch_create_ip", "112.224.33.55");
         param.put("out_trade_no", UUID.randomUUID().toString().replaceAll("-", ""));
@@ -59,7 +57,8 @@ public class Unionpay {
     /**
      * 银联支付验证接口
      */
-    public static void pay() {
+    @Test
+    public void pay() {
         SortedMap<String, String> param = new TreeMap();
         param.put("mch_create_ip", "112.224.33.55");
         param.put("service", Config.PAY_UNIONPAY_PAY);

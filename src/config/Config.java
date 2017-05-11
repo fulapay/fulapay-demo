@@ -85,6 +85,9 @@ public class Config {
     //信息认证接口请求网关
     public static final String AUTH_ID_CARD_URL = "https://sandapi.fulapay.com/open/auth/idCard";
     public static final String AUTH_BANK_URL = "https://sandapi.fulapay.com/open/auth/bankCard";
+
+    //银行支行查询
+    public static final String AUTH_BANK_BRANCH_URL = "https://sandapi.fulapay.com/open/bank/branch";
     /**
      * UNIFIED_PAY_URL (service参数仅能为以下数据)
      * 付啦统一支付service 常量声明
@@ -118,6 +121,9 @@ public class Config {
     //身份证信息认证
     public static final String AUTH_BANK_SERVICE = "open.bankcard.auth";
     public static final String AUTH_ID_CARD_SERVICE = "open.idcard.auth";
+    //银行支行查询
+    public static final String AUTH_BANK_BRANCH = "open.bank.branch";
+
 
     /**
      * 大额转帐service
