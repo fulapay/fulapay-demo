@@ -49,7 +49,7 @@
 <script>
     var authCodeDiv = document.getElementById('authCodeDiv');
     function changeService(service) {
-        if(service == 'pay.alipay.scan' || service == 'pay.wxpay.scan'|| service == 'pay.qqpay.scan'){
+        if (service == 'pay.alipay.scan' || service == 'pay.wxpay.scan' || service == 'pay.qqpay.scan') {
             authCodeDiv.style.display = 'block';
         } else {
             authCodeDiv.style.display = 'none';
@@ -63,10 +63,14 @@
         $.post('/fulaPay', $('#form').serialize(), function (data) {
             if (data.success) {
                 var service = $("#service").val();
-                if(service == 'pay.alipay.qrcode' || service == 'pay.wxpay.qrcode'|| service == 'pay.qqpay.qrcode'){
-                    $('#qrcode').html("");
-                    $('#qrcode').qrcode(data.payInfo);
-                } else{
+                if (service == 'pay.alipay.qrcode' || service == 'pay.wxpay.qrcode' || service == 'pay.qqpay.qrcode') {
+                    if ('qrcode' == data.urlType) {
+                        $('#qrcode').html('<img src="' + data.payInfo + '">');
+                    } else {
+                        $('#qrcode').html("");
+                        $('#qrcode').qrcode(data.payInfo);
+                    }
+                } else {
                     // 扫码支付同步返回支付结果
                     alert('支付成功');
                 }
