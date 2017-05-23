@@ -113,6 +113,8 @@ public class Config {
     public static final String PAY_QQPAY_SCAN = "pay.qqpay.scan";
     public static final String PAY_ALIPAY_QRCODE = "pay.alipay.qrcode";
     public static final String PAY_ALIPAY_SCAN = "pay.alipay.scan";
+    public static final String PAY_BDPAY_QRCODE = "pay.bdpay.qrcode";
+    public static final String PAY_BDPAY_SCAN = "pay.bdpay.scan";
 
     //银联支付
     public static final String PAY_UNIONPAY_PRE = "pay.unionpay.pre";

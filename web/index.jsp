@@ -20,16 +20,18 @@
         <option value="pay.alipay.qrcode">支付宝二维码支付</option>
         <option value="pay.wxpay.qrcode">微信二维码支付</option>
         <option value="pay.qqpay.qrcode">QQ二维码支付</option>
+        <option value="pay.bdpay.qrcode">百度钱包二维码支付</option>
         <option value="pay.alipay.scan">支付宝扫码支付</option>
         <option value="pay.wxpay.scan">微信扫码支付</option>
         <option value="pay.qqpay.scan">QQ扫码支付</option>
+        <option value="pay.bdpay.scan">百度钱包扫码支付</option>
     </select>
     <br><br>
 
     <div id="authCodeDiv" style="display: none;">
         条形码
         <input type="text" name="authCode" value="">
-        支付宝或者微信的条形码字符串
+        支付宝/微信/QQ/百度钱包的条形码字符串
         <br><br>
     </div>
 
@@ -49,7 +51,7 @@
 <script>
     var authCodeDiv = document.getElementById('authCodeDiv');
     function changeService(service) {
-        if (service == 'pay.alipay.scan' || service == 'pay.wxpay.scan' || service == 'pay.qqpay.scan') {
+        if (service == 'pay.alipay.scan' || service == 'pay.wxpay.scan' || service == 'pay.qqpay.scan'|| service == 'pay.bdpay.scan') {
             authCodeDiv.style.display = 'block';
         } else {
             authCodeDiv.style.display = 'none';

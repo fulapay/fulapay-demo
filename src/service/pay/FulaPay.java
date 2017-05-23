@@ -70,7 +70,7 @@ public class FulaPay extends HttpServlet {
                 String resMsg = result.get("res_msg");
                 String resultCode = result.get("result_code");
                 if ("0000".equals(resCode) && "S".equals(resultCode)) {
-                    if (Config.PAY_WXPAY_QRCODE.equals(service) || Config.PAY_ALIPAY_QRCODE.equals(service) || Config.PAY_QQPAY_QRCODE.equals(service)) {
+                    if (Config.PAY_WXPAY_QRCODE.equals(service) || Config.PAY_ALIPAY_QRCODE.equals(service) || Config.PAY_QQPAY_QRCODE.equals(service) || Config.PAY_BDPAY_QRCODE.equals(service)) {
                         // TODO payInfo 及付啦支付返回的二维码数据,商户只需要利用这个数据生成二维码后即可使用支付宝扫码支付
                         // 二维码支付
                         String payInfo = result.get("pay_info");
@@ -79,7 +79,7 @@ public class FulaPay extends HttpServlet {
                         responseMap.put("urlType", urlType);
                         responseMap.put("payInfo", payInfo);
                         responseMap.put("success", true);
-                    } else if (Config.PAY_WXPAY_SCAN.equals(service) || Config.PAY_ALIPAY_SCAN.equals(service) || Config.PAY_QQPAY_SCAN.equals(service)) {
+                    } else if (Config.PAY_WXPAY_SCAN.equals(service) || Config.PAY_ALIPAY_SCAN.equals(service) || Config.PAY_QQPAY_SCAN.equals(service)|| Config.PAY_BDPAY_SCAN.equals(service)) {
                         // 扫码支付 同步返回成功
                         responseMap.put("success", true);
                     }
