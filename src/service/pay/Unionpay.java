@@ -25,15 +25,15 @@ public class Unionpay {
         param.put("mch_create_ip", "112.224.33.55");
         param.put("out_trade_no", UUID.randomUUID().toString().replaceAll("-", ""));
         param.put("service", Config.PAY_UNIONPAY_PRE);
-        param.put("trans_date", "20170517110101");
-        param.put("total_fee", "1000");
-        param.put("card_by_name", "全佳营");
-        param.put("card_by_no", "4392258312625496");
-        param.put("cer_number", "339005198302165613");
-        param.put("mobile", "18658103308");
+        param.put("trans_date", "20170526090101");
+        param.put("total_fee", "10000");
+        param.put("card_by_name", "陈承");
+        param.put("card_by_no", "6230910199009120151");
+        param.put("cer_number", "341227198710121517");
+        param.put("mobile", "18368851060");
         param.put("mch_id", Config.MCH_ID);
-        param.put("cvv", "061");
-        param.put("expire_date", "0116");
+       /* param.put("cvv", "061");
+        param.put("expire_date", "0116");*/
         System.out.println(">>>>post sign map: " + param);
         String xmlStr = PayUtil.buildRequestXml(param);
         System.out.println(">>>>post xmlStr: " + xmlStr);
@@ -62,9 +62,9 @@ public class Unionpay {
         param.put("mch_create_ip", "112.224.33.55");
         param.put("service", Config.PAY_UNIONPAY_PAY);
         param.put("mch_id", Config.MCH_ID);
-        param.put("order_id", "20170517112247100163952281553");
+        param.put("order_id", "2017052611245010016395227749a");
         param.put("ks_pay_order_id", "2017051715524976");
-        param.put("yzm", "996944");
+        param.put("yzm", "281203");
         System.out.println(">>>>post sign map: " + param);
         String xmlStr = PayUtil.buildRequestXml(param);
         System.out.println(">>>>post xmlStr: " + xmlStr);
