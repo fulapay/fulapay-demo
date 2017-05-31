@@ -21,8 +21,30 @@ import java.util.UUID;
 @WebServlet("/jspay")
 public class JsPay extends HttpServlet{
 
+    /**
+     * 微信公众号支付 仅能线上测试
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect("/jspay.jsp");
+        SortedMap<String, String> param = new TreeMap();
+        String merchant_no="";      //商户号
+        String total_fee="";        //支付金额
+        String out_trade_no="";     //商户系统内部的订单号
+        String notify_url="";       //回调路径
+        String description="";      //订单描述
+        param.put("merchantNo",merchant_no);
+        param.put("total_fee",total_fee);
+        param.put("out_trade_no",out_trade_no);
+        param.put("notify_url",notify_url);
+        param.put("description",description);
+        //构成商户请求数据
+        String queryStr = PayUtil.buildRequestToString(param);
+        String payUrl = Config.JS_SHOU_KUAN_URL + "?" + URLEncoder.encode(queryStr, Config.CHARSET);
+        System.out.println("-----pay url:" + payUrl);
+        resp.sendRedirect(payUrl);
     }
 
     /**

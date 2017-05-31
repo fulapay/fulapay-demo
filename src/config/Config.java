@@ -46,6 +46,8 @@ public class Config {
     public static final String UNIFIED_PAY_URL = "https://sandapi.fulapay.com/pay/unified/url";
     // TODO wuming 16/11/15 下午4:23 JS支付线上接口地址（仅能线上调用）
     public static final String JS_PAY_URL = "https://api.fulapay.com/pay/jspay";
+
+    public static final String JS_SHOU_KUAN_URL="https://weixin.fulapay.com/wxpay/input2.html";
     // 付啦统一下单接口请求地址
     public static final String UNIFIED_ORDER_URL = "https://sandapi.fulapay.com/pay/unifiedOrder";
     // mpos 支付
