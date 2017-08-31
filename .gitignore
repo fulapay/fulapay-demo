@@ -11,6 +11,7 @@
 *.iml
 *.iwa
 *.ipr
+/*/class/*
 *.class
 .DS_Store
 out
