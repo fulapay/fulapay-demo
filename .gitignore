@@ -11,12 +11,11 @@
 *.iml
 *.iwa
 *.ipr
-class
-test
 *.class
 .DS_Store
 out
-#web/WEB-INF/class
+web/WEB-INF/class
+web/WEB-INF/test
 
 # jrebel setting
 rebel.xml
