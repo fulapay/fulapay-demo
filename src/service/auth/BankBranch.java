@@ -45,4 +45,33 @@ public class BankBranch {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void banckMsg() {
+        SortedMap<String, String> param = new TreeMap();
+        param.put("service", Config.AUTH_BANK_MSG);
+        param.put("card_no", "623668123456780856");
+        System.out.println(">>>>post sign map: " + param);
+        String xmlStr = PayUtil.buildRequestXml(param);
+        System.out.println(">>>>post xmlStr: " + xmlStr);
+        String resText = HttpsUtil.post(Config.AUTH_BANK_MSG_URL, xmlStr, Config.CHARSET);
+        System.out.println("<<<<resText: " + resText);
+        // 验签后取得支付数据
+        try {
+            SortedMap<String, String> result = XmlUtil.doXMLParse(resText);
+            JSONArray bankBranch = JSONArray.fromObject(result.get("data"));
+            System.out.println("<<<<res data: " + bankBranch);
+            Object[] list = bankBranch.toArray();
+            for (Object s : list) {
+                System.out.println(s);
+            }
+            if (PayUtil.verifyFulaParam(result)) {
+                System.out.println("<<<<verify success-----------银行支行:" + result);
+            } else {
+                System.out.println("<<<<verify fail-----------------");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

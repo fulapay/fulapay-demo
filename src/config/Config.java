@@ -82,7 +82,7 @@ public class Config {
     public static final String FLOW_ORDER_URL = "https://sandapi.fulapay.com/flow/order";
 
     // 帐户提现接口请求网关
-    public static final String ACCOUNT_WITHDRAW_URL = "https://sandapi.fulapay.com/account/withdraw";
+    public static final String ACCOUNT_WITHDRAW_URL = "http://sandapi.fulapay.com/account/withdraw";
     public static final String ACCOUNT_WITHDRAW_QUERY_URL = "https://sandapi.fulapay.com/account/withdraw/query";
     //信息认证接口请求网关
     public static final String AUTH_ID_CARD_URL = "https://sandapi.fulapay.com/open/auth/idCard";
@@ -90,6 +90,8 @@ public class Config {
 
     //银行支行查询
     public static final String AUTH_BANK_BRANCH_URL = "https://sandapi.fulapay.com/open/bank/branch";
+    //银行卡信息查询
+    public static final String AUTH_BANK_MSG_URL = "http://sandapi.fulapay.com/open/bank/msg";
     /**
      * UNIFIED_PAY_URL (service参数仅能为以下数据)
      * 付啦统一支付service 常量声明
@@ -127,6 +129,7 @@ public class Config {
     public static final String AUTH_ID_CARD_SERVICE = "open.idcard.auth";
     //银行支行查询
     public static final String AUTH_BANK_BRANCH = "open.bank.branch";
+    public static final String AUTH_BANK_MSG = "open.bank.msg";
 
 
     /**

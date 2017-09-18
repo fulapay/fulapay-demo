@@ -17,14 +17,26 @@ public class Withdraw {
 
     @Test
     public void withdraw() throws Exception {
+        String toyalfee = "500";
+        String mobile = "15280533697";
+        String bankAccountNo = "6225685866687388";
+        String bankAccountName = "无名";
+        for (int i = 0; i < 100000; i++) {
+            withdrawTest(toyalfee, mobile, bankAccountNo, bankAccountName, mobile);
+            System.out.println("第=========================================================="+i+"次请求！");
+        }
+
+    }
+
+    public void withdrawTest(String toyalfee, String mobile, String bankAccountNo, String bankAccountName, String bankMobile) throws Exception {
         SortedMap<String, String> param = new TreeMap();
         param.put("service", Config.PAY_ACCOUNT_WITHDRAW); // 固定值
         param.put("out_trade_no", UUID.randomUUID().toString().replaceAll("-", "")); // 商户提现订单号 保证唯一，不可重复
-        param.put("total_fee", "600"); // 单位：分
-        param.put("mobile", "15280533697");
-        param.put("bank_account_no", RSA.encrypt("6225685866687388", Config.PUBLIC_KEY, Config.CHARSET)); // 使用付啦公钥对帐号信息加密
-        param.put("bank_account_name", RSA.encrypt("无名", Config.PUBLIC_KEY, Config.CHARSET)); // 使用付啦公钥对户名信息加密
-        param.put("bank_mobile", "15280533697");
+        param.put("total_fee", toyalfee); // 单位：分
+        param.put("mobile", mobile);
+        param.put("bank_account_no", RSA.encrypt(bankAccountNo, Config.PUBLIC_KEY, Config.CHARSET)); // 使用付啦公钥对帐号信息加密
+        param.put("bank_account_name", RSA.encrypt(bankAccountName, Config.PUBLIC_KEY, Config.CHARSET)); // 使用付啦公钥对户名信息加密
+        param.put("bank_mobile", bankMobile);
         param.put("is_company", "0"); // 0个人帐户 1对公帐户
         param.put("bank_subbranch_no", ""); // 联行号 选填
         param.put("remark", "提现测试"); // 备注 选填
@@ -41,7 +53,7 @@ public class Withdraw {
                 String resCode = result.get("res_code");
                 String resMsg = result.get("res_msg");
                 String resultCode = result.get("result_code");
-                if("0000".equals(resCode) && "S".equals(resultCode)){
+                if ("0000".equals(resCode) && "S".equals(resultCode)) {
                     System.out.println("提现申请成功！");
                     responseMap.put("success", true);
                     // 具体到帐通知由notify信息通知
@@ -55,13 +67,14 @@ public class Withdraw {
             responseMap.put("error", "代付请求返回数据解析异常");
         }
         System.out.println("响应结果: " + responseMap);
+
     }
 
     /**
      * 提现订单结果接口
      * transaction_id 与 out_trade_no 不能同时为空
-     *  1.如果仅有其一，则以此值查询订单返回
-     *  2.如果两个值都不空，则以transaction_id优先查询订单详情，并验证订单数据是否与所传参数out_trade_no值一致
+     * 1.如果仅有其一，则以此值查询订单返回
+     * 2.如果两个值都不空，则以transaction_id优先查询订单详情，并验证订单数据是否与所传参数out_trade_no值一致
      */
     @Test
     public void query() {
