@@ -18,10 +18,10 @@ public class Auth {
     public void authBank() {
         SortedMap<String, String> param = new TreeMap();
         param.put("service", Config.AUTH_BANK_SERVICE);
-        param.put("name", "李云标");
-        param.put("id_no", "341227198710121517");
-        param.put("mobile", "18658161306");
-        param.put("bank_no", "6214835492105448");
+        param.put("name", "李云");
+        param.put("id_no", "341227199703271517");
+        param.put("mobile", "18658188886");
+        param.put("bank_no", "6214835499999448");
         System.out.println(">>>>post sign map: " + param);
         String xmlStr = PayUtil.buildRequestXml(param);
         String resText = HttpsUtil.post(Config.AUTH_BANK_URL, xmlStr, Config.CHARSET);
