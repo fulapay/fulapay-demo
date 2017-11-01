@@ -59,14 +59,8 @@ public class BankBranch {
         // 验签后取得支付数据
         try {
             SortedMap<String, String> result = XmlUtil.doXMLParse(resText);
-            JSONArray bankBranch = JSONArray.fromObject(result.get("data"));
-            System.out.println("<<<<res data: " + bankBranch);
-            Object[] list = bankBranch.toArray();
-            for (Object s : list) {
-                System.out.println(s);
-            }
             if (PayUtil.verifyFulaParam(result)) {
-                System.out.println("<<<<verify success-----------银行支行:" + result);
+                System.out.println("<<<<verify success----银行名称:" + result.get("bank_name") + "----卡名字：" + result.get("card_name") + "----卡类型:" + result.get("card_type"));
             } else {
                 System.out.println("<<<<verify fail-----------------");
             }

@@ -89,7 +89,7 @@ public class Config {
     public static final String AUTH_BANK_URL = "https://sandapi.fulapay.com/open/auth/bankCard";
 
     //银行支行查询
-    public static final String AUTH_BANK_BRANCH_URL = "https://sandapi.fulapay.com/open/bank/branch";
+    public static final String AUTH_BANK_BRANCH_URL = "http://sandapi.fulapay.com/open/bank/branch";
     //银行卡信息查询
     public static final String AUTH_BANK_MSG_URL = "http://sandapi.fulapay.com/open/bank/msg";
     /**
